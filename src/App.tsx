@@ -148,14 +148,20 @@ function App() {
             </div>
             <div className="devs-grid">
               <TiltCard className="dev-profile-card">
-                <div className="dev-avatar-placeholder">+</div>
+                <div className="avatar-wrapper blue-glow">
+                  <img src="/avatar1.png" alt="Developer Slot" className="dev-avatar" />
+                  <div className="shine-effect"></div>
+                </div>
                 <div className="dev-info">
                   <h3>Vaga Aberta</h3>
                   <p>Contribuidor Full-Stack / IA</p>
                 </div>
               </TiltCard>
               <TiltCard className="dev-profile-card">
-                <div className="dev-avatar-placeholder">+</div>
+                <div className="avatar-wrapper purple-glow">
+                  <img src="/avatar2.png" alt="Prompt Engineer Slot" className="dev-avatar" />
+                  <div className="shine-effect"></div>
+                </div>
                 <div className="dev-info">
                   <h3>Vaga Aberta</h3>
                   <p>Engenheiro de Prompts</p>
@@ -193,12 +199,6 @@ function App() {
         </div>
       </div>
     </div>
-  )
-}
-
-export default App
-      </div >
-    </div >
   )
 }
 
