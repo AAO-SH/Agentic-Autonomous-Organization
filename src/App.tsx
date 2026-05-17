@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Bot, GitBranch, Cpu, Network, ArrowRight } from 'lucide-react';
+import { Bot, Cpu, Network } from 'lucide-react';
 import './index.css';
 
 const FloatingLogos = () => {
