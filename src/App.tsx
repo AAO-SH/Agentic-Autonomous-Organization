@@ -171,14 +171,14 @@ function App() {
             </div>
             <div className="devs-grid">
               <TiltCard className="dev-profile-card" delay={0.1}>
-                <div className="dev-avatar-placeholder">+</div>
+                <img src="/avatar1.png" alt="Developer Slot" className="dev-avatar" />
                 <div className="dev-info">
                   <h3>Vaga Aberta</h3>
                   <p>Contribuidor Full-Stack / IA</p>
                 </div>
               </TiltCard>
               <TiltCard className="dev-profile-card" delay={0.3}>
-                <div className="dev-avatar-placeholder">+</div>
+                <img src="/avatar2.png" alt="Prompt Engineer Slot" className="dev-avatar" style={{ borderColor: 'rgba(192, 132, 252, 0.6)' }} />
                 <div className="dev-info">
                   <h3>Vaga Aberta</h3>
                   <p>Engenheiro de Prompts</p>

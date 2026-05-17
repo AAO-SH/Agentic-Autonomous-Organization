@@ -41,6 +41,7 @@ O controle de versão deste projeto segue um formato numérico simples e direto,
 - `v1.8.1` - Atualização da documentação base do projeto (README e instruções) para versões mais recentes.
 - `v1.8.2` - Padronização de formatação de tags JSX auto-fechadas no `App.tsx` e inclusão da classe CSS `.dev-avatar` no `index.css`.
 - `v1.9` - Otimização de performance e interatividade: suporte a eventos touch para o fundo interativo, aceleração por GPU (hardware layers) com transição suave, animações de entrada com atraso escalonado (staggered delay) para os cards Bento e suporte completo a telas ultra-mobile (<= 480px).
+- `v1.9.1` - Substituição dos placeholders por avatares reais (`avatar1.png`, `avatar2.png`) na seção "Developers Collaboration" utilizando a classe `.dev-avatar`.
 
 > **Nota para futuros contribuidores**: A seção `Developers Collaboration` no código possui cards pré-estruturados. Assim que novos desenvolvedores entrarem para o time, seus avatares, nomes e especialidades devem substituir os atuais placeholders de "Vaga Aberta".
 
