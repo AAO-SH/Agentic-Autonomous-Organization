@@ -124,8 +124,9 @@ function App() {
           {/* Feature Callout */}
           <motion.div
             className="feature-callout"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -80, scale: 0.95 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ type: "spring", stiffness: 80, damping: 20 }}
             viewport={{ once: true, margin: "-100px" }}
           >
             <div>
@@ -134,8 +135,8 @@ function App() {
                 Pipeline de CI/CD reverso. Em vez de testar código humano, os modelos analisam e disparam webhooks nativos para auto-correção. Integrações via API distribuem tokens contextuais, permitindo a comunicação entre múltiplos agentes (GPT, Claude, Gemini) em um único grafo de dependências.
               </p>
             </div>
-            <TiltCard className="bento-tall" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Network size={80} color="rgba(96, 165, 250, 0.4)" strokeWidth={1} />
+            <TiltCard className="bento-tall" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: 0 }}>
+              <img src="/graph_symbol.png" alt="Graph Network Symbol" style={{ width: '100%', height: '100%', objectFit: 'cover', mixBlendMode: 'screen' }} />
             </TiltCard>
           </motion.div>
 
