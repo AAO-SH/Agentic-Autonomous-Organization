@@ -32,10 +32,11 @@ const FloatingLogos = () => {
 };
 
 // Componente para card com Tilt 3D
-const TiltCard = ({ children, className }: { children?: React.ReactNode, className?: string }) => {
+const TiltCard = ({ children, className, style }: { children?: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
   return (
     <motion.div 
       className={`bento-card ${className}`}
+      style={style}
       whileHover={{ scale: 1.02, rotateX: 2, rotateY: -2 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       viewport={{ once: true }}
@@ -72,7 +73,10 @@ function App() {
       <FloatingLogos />
 
       <header className="top-header">
-        <div className="logo">open code</div>
+        <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+          <span style={{ background: 'linear-gradient(to right, #60a5fa, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.02em' }}>open code</span>
+        </div>
       </header>
 
       {/* Hero Fixo que vai pro fundo */}
@@ -130,14 +134,10 @@ function App() {
                 Pipeline de CI/CD reverso. Em vez de testar código humano, os modelos analisam e disparam webhooks nativos para auto-correção. Integrações via API distribuem tokens contextuais, permitindo a comunicação entre múltiplos agentes (GPT, Claude, Gemini) em um único grafo de dependências.
               </p>
             </div>
-            <TiltCard className="bento-tall" />
+            <TiltCard className="bento-tall" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+               <Network size={80} color="rgba(96, 165, 250, 0.4)" strokeWidth={1} />
+            </TiltCard>
           </motion.div>
-
-          {/* Asymmetric Grid */}
-          <div className="bento-grid" style={{ marginTop: '4rem' }}>
-            <TiltCard className="bento-medium" />
-            <TiltCard className="bento-medium" />
-          </div>
 
           {/* Developers Collaboration */}
           <div className="developers-collab">
@@ -166,8 +166,11 @@ function App() {
           {/* Footer */}
           <footer className="footer">
             <div>
-              <div className="footer-logo">open code</div>
-              <p style={{ color: '#64748b', fontSize: '0.9rem', maxWidth: '250px' }}>
+              <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', fontSize: '1.5rem' }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                <span style={{ background: 'linear-gradient(to right, #60a5fa, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 800 }}>open code</span>
+              </div>
+              <p style={{ color: '#64748b', fontSize: '0.95rem', maxWidth: '300px', lineHeight: 1.6 }}>
                 Construindo a fundação para a automação total de software através de IA.
               </p>
             </div>
