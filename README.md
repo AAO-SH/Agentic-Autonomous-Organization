@@ -26,13 +26,12 @@ O front-end foi construído com um design minimalista, focado na estética "Dark
    ```
 5. Acesse a URL gerada no terminal (geralmente `http://localhost:5173/`).
 
-## 📌 Padrão de Versionamento
+## 🚀 Padrão de Versionamento
 
 O controle de versão deste projeto segue um formato numérico simples e direto, usando o prefixo **v**. 
-As atualizações, commits ou releases do código e do design deverão adotar a seguinte nomenclatura:
 
-- `v1.0` (Versão inicial / Lançamento)
-- `v1.1` (Adição de pequenas features ou correções)
-- `v1.2`, `v2.0`... e assim sucessivamente.
+- `v1.0` - Versão inicial / Lançamento.
+- `v1.1` e `v1.2` - Configurações de Deploy no GitHub Pages e CNAME.
+- `v1.3` - Atualização total de interface: tema voltado ao tom azul claro (Blue Aesthetic), nova fonte (Outfit), grade interativa guiada pelo mouse, ícones flutuantes de IAs (ChatGPT, Gemini, Claude, etc) e efeitos de rolagem parallax usando Framer Motion.
 
 Ao realizar qualquer atualização importante no projeto, lembre-se de registrar a evolução do versionamento no histórico de commits e eventuais changelogs!
