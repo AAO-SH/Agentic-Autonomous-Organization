@@ -46,6 +46,7 @@ O controle de versão deste projeto segue um formato numérico simples e direto,
 - `v1.9.3` - Hotfix: Correção de erro fatal de sintaxe TypeScript (`TS1128`, duplicação de tags) e otimização das props do componente `TiltCard`.
 - `v1.9.3` - Atualização autônoma: Modificações detectadas em `EADME.md`.
 - `v1.9.4` - Atualização autônoma: Modificações detectadas em `jest.config.cjs`, `src/App.tsx`, `ackage-lock.json`, `package.json`.
+- `v1.9.4` - Atualização autônoma: Modificações detectadas em `src/build.test.ts`, `src/App.test.tsx`, `package.json`, `jest.setup.ts`, `github/workflows/deploy.yml`, `__mocks__/`.
 
 
 > **Nota para futuros contribuidores**: A seção `Developers Collaboration` no código possui cards pré-estruturados. Assim que novos desenvolvedores entrarem para o time, seus avatares, nomes e especialidades devem substituir os atuais placeholders de "Vaga Aberta".
