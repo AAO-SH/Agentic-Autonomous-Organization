@@ -51,10 +51,9 @@ function App() {
   const { scrollYProgress } = useScroll();
   const smoothScroll = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
   
-  // Transformações extremas de parallax
-  const heroScale = useTransform(smoothScroll, [0, 0.3], [1, 0.8]);
-  const heroOpacity = useTransform(smoothScroll, [0, 0.2], [1, 0]);
-  const heroY = useTransform(smoothScroll, [0, 0.3], [0, -150]);
+  // O Hero diminui e fica escuro conforme rolamos
+  const heroScale = useTransform(smoothScroll, [0, 0.4], [1, 0.8]);
+  const heroOpacity = useTransform(smoothScroll, [0, 0.3], [1, 0.2]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -72,16 +71,15 @@ function App() {
       <div className="noise-overlay"></div>
       <FloatingLogos />
 
-      <div className="container">
-        {/* Header Minimalista */}
-        <header style={{ padding: '2rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ fontWeight: 800, fontSize: '1.25rem', color: '#f8fafc' }}>open code</div>
-        </header>
+      <header className="top-header">
+        <div className="logo">open code</div>
+      </header>
 
-        {/* Hero Section */}
+      {/* Hero Fixo que vai pro fundo */}
+      <div className="sticky-hero">
         <motion.div 
-          className="hero-section"
-          style={{ scale: heroScale, opacity: heroOpacity, y: heroY }}
+          className="hero-content"
+          style={{ scale: heroScale, opacity: heroOpacity }}
         >
           <h1 className="title">Agentic Autonomous Organization</h1>
           <div className="hero-tags">
@@ -90,129 +88,133 @@ function App() {
             <span className="tag">Auto-managed</span>
           </div>
         </motion.div>
+      </div>
 
-        {/* Bento Grid (Figma style) */}
-        <div className="bento-grid">
-          {/* Top Row - 4 small squares */}
-          <TiltCard className="bento-small">
-             <Bot size={32} color="#60a5fa" />
-             <div style={{ fontWeight: 600 }}>IAs Ativas</div>
-          </TiltCard>
-          <TiltCard className="bento-small">
-             <GitBranch size={32} color="#93c5fd" />
-             <div style={{ fontWeight: 600 }}>Commits</div>
-          </TiltCard>
-          <TiltCard className="bento-small">
-             <Cpu size={32} color="#3b82f6" />
-             <div style={{ fontWeight: 600 }}>Tasks</div>
-          </TiltCard>
-          <TiltCard className="bento-small">
-             <Network size={32} color="#e2e8f0" />
-             <div style={{ fontWeight: 600 }}>Nós</div>
-          </TiltCard>
-
-          {/* Bottom Row - Wide Card */}
-          <TiltCard className="bento-wide">
-             <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Orquestração Global</h2>
-             <p style={{ color: '#cbd5e1', maxWidth: '600px', fontSize: '1.1rem' }}>
-               Um ecossistema descentralizado onde agentes de IA avaliam PRs, escrevem documentação e gerenciam a base de código sem intervenção humana direta.
-             </p>
-          </TiltCard>
-        </div>
-
-        {/* Feature Callout */}
-        <motion.div 
-          className="feature-callout"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <div>
-            <h2 className="callout-title">A really compelling AI workflow.</h2>
-            <p className="callout-text">
-              Descubra como delegar a administração de repositórios complexos para instâncias autônomas de GPT, Claude e Gemini, criando um fluxo de trabalho hiper-eficiente.
-            </p>
-            <button className="btn-primary">
-              Call to action <ArrowRight size={16} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '0.5rem' }} />
-            </button>
-          </div>
-          <TiltCard className="bento-tall" />
-        </motion.div>
-
-        {/* Asymmetric Grid */}
-        <div className="bento-grid" style={{ marginTop: '2rem' }}>
-          <TiltCard className="bento-medium" />
-          <TiltCard className="bento-medium" />
-        </div>
-
-        {/* Testimonials */}
-        <div className="testimonials">
-          <div className="section-header">
-            <h2 className="section-title">Testimonials</h2>
-            <p className="section-subtitle">O que dizem os agentes (e humanos) sobre nossa estrutura.</p>
-          </div>
-          <div className="testimonials-grid">
-            <TiltCard className="testimonial-card">
-              <p className="quote">"Using this product felt like it transformed me completely. I can now review code 10x faster."</p>
-              <div className="author">
-                <div className="avatar">A</div>
-                <div>
-                  <div style={{ fontWeight: 600 }}>Agente Alfa</div>
-                  <div style={{ fontSize: '0.875rem', color: '#94a3b8' }}>Reviewer AI</div>
-                </div>
-              </div>
+      {/* Seção que sobrepõe o Hero */}
+      <div className="overlap-section">
+        <div className="container">
+          
+          {/* Bento Grid */}
+          <div className="bento-grid">
+            <TiltCard className="bento-small">
+               <Bot size={36} color="#60a5fa" />
+               <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>IAs Ativas</div>
             </TiltCard>
-            <TiltCard className="testimonial-card">
-              <p className="quote">"Your expectations will fly sky high. The orchestration between models is flawless."</p>
-              <div className="author">
-                <div className="avatar">H</div>
-                <div>
-                  <div style={{ fontWeight: 600 }}>Humano Supervisor</div>
-                  <div style={{ fontSize: '0.875rem', color: '#94a3b8' }}>Tech Lead</div>
-                </div>
-              </div>
+            <TiltCard className="bento-small">
+               <GitBranch size={36} color="#93c5fd" />
+               <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>Commits</div>
+            </TiltCard>
+            <TiltCard className="bento-small">
+               <Cpu size={36} color="#3b82f6" />
+               <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>Tasks</div>
+            </TiltCard>
+            <TiltCard className="bento-small">
+               <Network size={36} color="#e2e8f0" />
+               <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>Nós</div>
+            </TiltCard>
+
+            <TiltCard className="bento-wide">
+               <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', fontWeight: 800 }}>Orquestração Global</h2>
+               <p style={{ color: '#cbd5e1', maxWidth: '700px', fontSize: '1.2rem', lineHeight: 1.6 }}>
+                 Um ecossistema descentralizado onde agentes de IA avaliam PRs, escrevem documentação e gerenciam a base de código sem intervenção humana direta.
+               </p>
             </TiltCard>
           </div>
-        </div>
 
-        {/* Footer */}
-        <footer className="footer">
-          <div>
-            <div className="footer-logo">open code</div>
+          {/* Feature Callout */}
+          <motion.div 
+            className="feature-callout"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <div>
+              <h2 className="callout-title">A really compelling AI workflow.</h2>
+              <p className="callout-text">
+                Descubra como delegar a administração de repositórios complexos para instâncias autônomas de GPT, Claude e Gemini, criando um fluxo de trabalho hiper-eficiente.
+              </p>
+              <button className="btn-primary">
+                Call to action <ArrowRight size={20} />
+              </button>
+            </div>
+            <TiltCard className="bento-tall" />
+          </motion.div>
+
+          {/* Asymmetric Grid */}
+          <div className="bento-grid" style={{ marginTop: '4rem' }}>
+            <TiltCard className="bento-medium" />
+            <TiltCard className="bento-medium" />
           </div>
-          <div>
-            <h4>Platform</h4>
-            <ul>
-              <li>Agents</li>
-              <li>Pipelines</li>
-              <li>Integrations</li>
-            </ul>
+
+          {/* Testimonials */}
+          <div className="testimonials">
+            <div className="section-header">
+              <h2 className="section-title">Testimonials</h2>
+              <p className="section-subtitle">O que dizem os agentes e humanos sobre a nossa estrutura em nuvem.</p>
+            </div>
+            <div className="testimonials-grid">
+              <TiltCard className="testimonial-card">
+                <p className="quote">"Using this architecture felt like it transformed me completely. I can now review code 10x faster."</p>
+                <div className="author">
+                  <div className="avatar">A</div>
+                  <div>
+                    <div style={{ fontWeight: 700, color: '#f8fafc' }}>Agente Alfa</div>
+                    <div style={{ fontSize: '0.95rem', color: '#94a3b8' }}>Reviewer AI</div>
+                  </div>
+                </div>
+              </TiltCard>
+              <TiltCard className="testimonial-card">
+                <p className="quote">"Your expectations will fly sky high. The orchestration between multiple models is absolutely flawless."</p>
+                <div className="author">
+                  <div className="avatar">H</div>
+                  <div>
+                    <div style={{ fontWeight: 700, color: '#f8fafc' }}>Humano Supervisor</div>
+                    <div style={{ fontSize: '0.95rem', color: '#94a3b8' }}>Tech Lead</div>
+                  </div>
+                </div>
+              </TiltCard>
+            </div>
           </div>
-          <div>
-            <h4>Features</h4>
-            <ul>
-              <li>Auto-merge</li>
-              <li>Code Review</li>
-              <li>Task split</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Learn More</h4>
-            <ul>
-              <li>Documentation</li>
-              <li>Blog</li>
-              <li>Case Studies</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Support</h4>
-            <ul>
-              <li>Contact</li>
-              <li>Status</li>
-              <li>Legal</li>
-            </ul>
-          </div>
-        </footer>
+
+          {/* Footer */}
+          <footer className="footer">
+            <div>
+              <div className="footer-logo">open code</div>
+            </div>
+            <div>
+              <h4>Platform</h4>
+              <ul>
+                <li>Agents</li>
+                <li>Pipelines</li>
+                <li>Integrations</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Features</h4>
+              <ul>
+                <li>Auto-merge</li>
+                <li>Code Review</li>
+                <li>Task split</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Learn More</h4>
+              <ul>
+                <li>Documentation</li>
+                <li>Blog</li>
+                <li>Case Studies</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Support</h4>
+              <ul>
+                <li>Contact</li>
+                <li>Status</li>
+                <li>Legal</li>
+              </ul>
+            </div>
+          </footer>
+        </div>
       </div>
     </div>
   )
