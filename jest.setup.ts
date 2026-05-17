@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 
 // Mocks para o window/document para evitar erros do Framer Motion e observers
-Object.defineProperty(window, 'matchMedia', {
+Object.defineProperty(window as any, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation(query => ({
     matches: false,

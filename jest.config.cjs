@@ -7,6 +7,6 @@ module.exports = {
     '\\.(gif|ttf|eot|svg|png|jpg|jpeg)$': '<rootDir>/__mocks__/fileMock.cjs',
   },
   transform: {
-    '^.+\\.tsx?$': ['ts-jest', { tsconfig: 'tsconfig.node.json' }],
+    '^.+\\.tsx?$': ['ts-jest', { tsconfig: 'tsconfig.app.json' }],
   },
 };
