@@ -21,4 +21,13 @@ class ResizeObserver {
   unobserve() {}
   disconnect() {}
 }
-window.ResizeObserver = ResizeObserver;
+(window as any).ResizeObserver = ResizeObserver;
+
+// Mock IntersectionObserver
+class IntersectionObserver {
+  constructor(callback: any) {}
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+(window as any).IntersectionObserver = IntersectionObserver;
