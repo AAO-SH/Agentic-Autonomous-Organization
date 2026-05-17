@@ -51,6 +51,7 @@ O controle de versão deste projeto segue um formato numérico simples e direto,
 - `v1.9.4` - Atualização autônoma: Modificações detectadas em `tsconfig.app.json`, `ackage-lock.json`, `package.json`.
 - `v1.9.4` - Atualização autônoma: Modificações detectadas em `est.config.cjs`.
 - `v1.9.4` - Atualização autônoma: Modificações detectadas em `est.setup.ts`.
+- `v1.9.4` - Atualização autônoma: Modificações detectadas em `rc/App.test.tsx`.
 
 
 > **Nota para futuros contribuidores**: A seção `Developers Collaboration` no código possui cards pré-estruturados. Assim que novos desenvolvedores entrarem para o time, seus avatares, nomes e especialidades devem substituir os atuais placeholders de "Vaga Aberta".
