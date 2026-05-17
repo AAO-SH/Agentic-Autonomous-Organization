@@ -22,6 +22,6 @@ O projeto foca em delegar fluxos de trabalho (Code Review, Automação de PRs, D
 - Novas SVG devem manter a propriedade de cor neutra ou `fill="currentColor"`, sendo as cores controladas via CSS.
 
 4. PADRÃO DE VERSIONAMENTO ATUAL
-- Versão atual: v1.8
-- Próxima feature nova: v1.9
+- Versão atual: v1.9
+- Próxima feature nova: v1.9.1
 - Grandes reestruturações: v2.0

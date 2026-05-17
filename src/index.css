@@ -163,7 +163,10 @@ h1, h2, h3, p {
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 10px 30px -15px rgba(0,0,0,0.5);
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
 }
 
 .bento-card::before {
@@ -372,6 +375,7 @@ h1, h2, h3, p {
 .floating-logo {
   position: absolute;
   filter: drop-shadow(0 0 25px rgba(96, 165, 250, 0.5));
+  will-change: transform;
 }
 
 /* Responsive */
@@ -387,12 +391,24 @@ h1, h2, h3, p {
   .bento-grid { grid-template-columns: 1fr; }
   .bento-wide, .bento-tall, .bento-small, .bento-medium { grid-column: span 1; }
   .devs-grid { grid-template-columns: 1fr; }
-  .footer { flex-direction: column; gap: 2rem; }
+  .footer { 
+    flex-direction: column; 
+    gap: 2rem; 
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+  }
   .footer-links { gap: 2rem; flex-direction: column; }
   .title { font-size: 2.75rem; }
   .overlap-section { padding-top: 5vh; }
-  .feature-callout { margin: 4rem 0; }
+  .feature-callout { margin: 4rem 0; text-align: center; }
   .developers-collab { margin: 6rem 0; }
   .sticky-hero { padding: 0 1rem; }
-  .container { padding: 0 1.5rem; }
+  .container { padding: 0 1.25rem; }
+  .bento-card { padding: 1.75rem; }
+}
+
+@media (max-width: 480px) {
+  .title { font-size: 2.25rem; }
+  .section-title { font-size: 2.25rem; }
+  .hero-tags { flex-direction: column; align-items: center; gap: 0.75rem; }
+  .tag { width: 100%; text-align: center; box-sizing: border-box; }
 }

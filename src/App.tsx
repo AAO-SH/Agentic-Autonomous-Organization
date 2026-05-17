@@ -32,16 +32,16 @@ const FloatingLogos = () => {
 };
 
 // Componente para card com Tilt 3D
-const TiltCard = ({ children, className, style }: { children?: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
+const TiltCard = ({ children, className, style, delay = 0 }: { children?: React.ReactNode, className?: string, style?: React.CSSProperties, delay?: number }) => {
   return (
     <motion.div
       className={`bento-card ${className}`}
       style={style}
       whileHover={{ scale: 1.02, rotateX: 2, rotateY: -2 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      viewport={{ once: true }}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+      viewport={{ once: true, margin: "-50px" }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0, transition: { delay, duration: 0.5, ease: "easeOut" } }}
     >
       {children}
     </motion.div>
@@ -57,12 +57,21 @@ function App() {
   const heroOpacity = useTransform(smoothScroll, [0, 0.3], [1, 0.2]);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    const handleMove = (e: MouseEvent | TouchEvent) => {
+      const x = 'touches' in e ? e.touches[0].clientX : e.clientX;
+      const y = 'touches' in e ? e.touches[0].clientY : e.clientY;
+      // Usando requestAnimationFrame para otimizar renderização em mobile e PC
+      requestAnimationFrame(() => {
+        document.documentElement.style.setProperty('--mouse-x', `${x}px`);
+        document.documentElement.style.setProperty('--mouse-y', `${y}px`);
+      });
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMove, { passive: true });
+    window.addEventListener('touchmove', handleMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMove);
+      window.removeEventListener('touchmove', handleMove);
+    };
   }, []);
 
   return (
@@ -84,13 +93,28 @@ function App() {
         <motion.div
           className="hero-content"
           style={{ scale: heroScale, opacity: heroOpacity }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="title">Agentic Autonomous Organization</h1>
-          <div className="hero-tags">
+          <motion.h1 
+            className="title"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
+            Agentic Autonomous Organization
+          </motion.h1>
+          <motion.div 
+            className="hero-tags"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5, staggerChildren: 0.1 }}
+          >
             <span className="tag">Open Source</span>
             <span className="tag">AI Driven</span>
             <span className="tag">Auto-managed</span>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -100,20 +124,20 @@ function App() {
 
           {/* Bento Grid */}
           <div className="bento-grid">
-            <TiltCard className="bento-small">
+            <TiltCard className="bento-small" delay={0.1}>
               <Bot size={36} color="#60a5fa" />
               <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>IAs Ativas</div>
             </TiltCard>
-            <TiltCard className="bento-small">
+            <TiltCard className="bento-small" delay={0.2}>
               <Cpu size={36} color="#3b82f6" />
               <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>Tasks</div>
             </TiltCard>
-            <TiltCard className="bento-small">
+            <TiltCard className="bento-small" delay={0.3}>
               <Network size={36} color="#e2e8f0" />
               <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>Nós</div>
             </TiltCard>
 
-            <TiltCard className="bento-wide">
+            <TiltCard className="bento-wide" delay={0.4}>
               <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', fontWeight: 800 }}>Orquestração Global</h2>
               <p style={{ color: '#cbd5e1', maxWidth: '800px', fontSize: '1.2rem', lineHeight: 1.6 }}>
                 Um código de base aberto que permite a múltiplas instâncias de Inteligência Artificial assumirem a gestão completa de repositórios. Cada IA atua como um agente autônomo, monitorando commits, avaliando pull requests e criando arquiteturas complexas sem a necessidade de intervenção humana.
@@ -146,14 +170,14 @@ function App() {
               <p className="section-subtitle">Conheça os engenheiros e pesquisadores contribuindo para o nosso código-fonte.</p>
             </div>
             <div className="devs-grid">
-              <TiltCard className="dev-profile-card">
+              <TiltCard className="dev-profile-card" delay={0.1}>
                 <div className="dev-avatar-placeholder">+</div>
                 <div className="dev-info">
                   <h3>Vaga Aberta</h3>
                   <p>Contribuidor Full-Stack / IA</p>
                 </div>
               </TiltCard>
-              <TiltCard className="dev-profile-card">
+              <TiltCard className="dev-profile-card" delay={0.3}>
                 <div className="dev-avatar-placeholder">+</div>
                 <div className="dev-info">
                   <h3>Vaga Aberta</h3>

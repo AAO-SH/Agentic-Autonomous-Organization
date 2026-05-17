@@ -38,6 +38,9 @@ O controle de versão deste projeto segue um formato numérico simples e direto,
 - `v1.6` e `v1.7` - Refinamento das grades (Remoção de Commits), atualização técnica das descrições (AI Workflow), correção responsiva para celulares/tablets, adição do Footer revisado e introdução da seção "Developers Collaboration".
 - `v1.7.1` - Hotfix para erros de tipagem e imports não utilizados no React.
 - `v1.8` - Refinamento total de margens e espaçamentos (redução de espaços vazios), adição de ilustrações no Workflow, e redesign da marca e gradiente "open code" no site.
+- `v1.8.1` - Atualização da documentação base do projeto (README e instruções) para versões mais recentes.
+- `v1.8.2` - Padronização de formatação de tags JSX auto-fechadas no `App.tsx` e inclusão da classe CSS `.dev-avatar` no `index.css`.
+- `v1.9` - Otimização de performance e interatividade: suporte a eventos touch para o fundo interativo, aceleração por GPU (hardware layers) com transição suave, animações de entrada com atraso escalonado (staggered delay) para os cards Bento e suporte completo a telas ultra-mobile (<= 480px).
 
 > **Nota para futuros contribuidores**: A seção `Developers Collaboration` no código possui cards pré-estruturados. Assim que novos desenvolvedores entrarem para o time, seus avatares, nomes e especialidades devem substituir os atuais placeholders de "Vaga Aberta".
 
