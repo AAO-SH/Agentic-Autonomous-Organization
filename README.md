@@ -48,6 +48,7 @@ O controle de versão deste projeto segue um formato numérico simples e direto,
 - v1.9.4 - Atualização autônoma: Modificações consolidadas em configurações, pacotes e testes (`jest.config.cjs`, `jest.setup.ts`, `package.json`, `github/workflows/deploy.yml`, `src/App.test.tsx`, etc).
 - v1.10.1 - Atualização autônoma: Modificações gerais detectadas em `tsconfig.app.json`, `src/App.tsx`, `package-lock.json`, `__mocks__/fileMock.cjs`, `src/build.test.ts`, `src/App.test.tsx`, `package.json`, `jest.setup.ts`, `jest.config.cjs` e no `README.md`.
 - v1.9.5 - Atualização autônoma: Modificações na documentação (README e instrucoes).
+- v1.9.6 - Atualização de UI: Remoção do efeito de chiado/embaçado do fundo (`noise-overlay`) no `App.tsx`.
 
 
 > **Nota para futuros contribuidores**: A seção `Developers Collaboration` no código possui cards pré-estruturados. Assim que novos desenvolvedores entrarem para o time, seus avatares, nomes e especialidades devem substituir os atuais placeholders de "Vaga Aberta".

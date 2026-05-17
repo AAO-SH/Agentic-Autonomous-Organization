@@ -69,7 +69,6 @@ function App() {
     <div className="page-wrapper">
       <div className="grid-bg"></div>
       <div className="ambient-light"></div>
-      <div className="noise-overlay"></div>
       <FloatingLogos />
 
       <header className="top-header">
