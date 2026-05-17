@@ -45,8 +45,9 @@ O controle de versão deste projeto segue um formato numérico simples e direto,
 - `v1.9.2` - Adição de efeito luminoso (Glow Effect e Shine Effect) utilizando novas classes CSS (`.avatar-wrapper`, `.blue-glow`, `.purple-glow`) envolta dos avatares dos colaboradores.
 - `v1.9.3` - Hotfix: Correção de erro fatal de sintaxe TypeScript (`TS1128`, duplicação de tags) e otimização das props do componente `TiltCard`.
 - `v1.10` - Integração de Metodologia TDD com Jest: Adição de testes unitários de renderização (`App.test.tsx`), testes de integração de Build via script (`build.test.ts`) e bloqueio no CI/CD (GitHub Actions) que previne o deploy no GitHub Pages se houver erros no código.
-- `v1.9.4` - Atualização autônoma: Modificações consolidadas em configurações, pacotes e testes (`jest.config.cjs`, `jest.setup.ts`, `package.json`, `github/workflows/deploy.yml`, `src/App.test.tsx`, etc).
-- `v1.10.1` - Atualização autônoma: Modificações gerais detectadas em `tsconfig.app.json`, `src/App.tsx`, `package-lock.json`, `__mocks__/fileMock.cjs`, `src/build.test.ts`, `src/App.test.tsx`, `package.json`, `jest.setup.ts`, `jest.config.cjs` e no `README.md`.
+- v1.9.4 - Atualização autônoma: Modificações consolidadas em configurações, pacotes e testes (`jest.config.cjs`, `jest.setup.ts`, `package.json`, `github/workflows/deploy.yml`, `src/App.test.tsx`, etc).
+- v1.10.1 - Atualização autônoma: Modificações gerais detectadas em `tsconfig.app.json`, `src/App.tsx`, `package-lock.json`, `__mocks__/fileMock.cjs`, `src/build.test.ts`, `src/App.test.tsx`, `package.json`, `jest.setup.ts`, `jest.config.cjs` e no `README.md`.
+- v1.9.5 - Atualização autônoma: Modificações na documentação (README e instrucoes).
 
 
 > **Nota para futuros contribuidores**: A seção `Developers Collaboration` no código possui cards pré-estruturados. Assim que novos desenvolvedores entrarem para o time, seus avatares, nomes e especialidades devem substituir os atuais placeholders de "Vaga Aberta".
