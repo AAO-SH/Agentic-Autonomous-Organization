@@ -36,6 +36,8 @@ O controle de versão deste projeto segue um formato numérico simples e direto,
 - `v1.4` - Correção de Build (Tipagem do React useRef).
 - `v1.5` - Reestruturação geral inspirada no Figma "Bento Grid". Inclusão de transições únicas Tilt 3D. Criação do arquivo de intruções nativo.
 - `v1.6` e `v1.7` - Refinamento das grades (Remoção de Commits), atualização técnica das descrições (AI Workflow), correção responsiva para celulares/tablets, adição do Footer revisado e introdução da seção "Developers Collaboration".
+- `v1.7.1` - Hotfix para erros de tipagem e imports não utilizados no React.
+- `v1.8` - Refinamento total de margens e espaçamentos (redução de espaços vazios), adição de ilustrações no Workflow, e redesign da marca e gradiente "open code" no site.
 
 > **Nota para futuros contribuidores**: A seção `Developers Collaboration` no código possui cards pré-estruturados. Assim que novos desenvolvedores entrarem para o time, seus avatares, nomes e especialidades devem substituir os atuais placeholders de "Vaga Aberta".
 
