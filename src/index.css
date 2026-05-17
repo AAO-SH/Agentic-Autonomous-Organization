@@ -151,7 +151,7 @@ h1, h2, h3, p {
 /* Bento Grid */
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
@@ -186,7 +186,7 @@ h1, h2, h3, p {
 }
 
 .bento-wide {
-  grid-column: span 4;
+  grid-column: span 3;
   min-height: 280px;
   background: linear-gradient(135deg, rgba(30, 58, 138, 0.5), rgba(15, 23, 42, 0.9));
   display: flex;
@@ -195,14 +195,14 @@ h1, h2, h3, p {
 }
 
 .bento-tall {
-  grid-column: span 2;
+  grid-column: span 1; /* Changed for 3 col layout */
   grid-row: span 2;
   min-height: 500px;
   background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.2), rgba(2, 6, 23, 0.95));
 }
 
 .bento-medium {
-  grid-column: span 2;
+  grid-column: span 1; /* Changed for 3 col layout */
   min-height: 240px;
 }
 
@@ -231,29 +231,8 @@ h1, h2, h3, p {
   margin-bottom: 2.5rem;
 }
 
-.btn-primary {
-  background: #f8fafc;
-  color: #020617;
-  padding: 1rem 2.5rem;
-  border-radius: 9999px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.btn-primary:hover {
-  background: #cbd5e1;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
-}
-
-/* Testimonials */
-.testimonials {
+/* Testimonials / Dev Collab */
+.developers-collab {
   margin: 10rem 0;
 }
 
@@ -278,44 +257,51 @@ h1, h2, h3, p {
   margin: 0 auto;
 }
 
-.testimonials-grid {
+.devs-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
 }
 
-.testimonial-card {
+.dev-profile-card {
   background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px dashed rgba(59, 130, 246, 0.3);
   border-radius: 1.5rem;
-  padding: 3rem;
-}
-
-.quote {
-  font-size: 1.35rem;
-  font-style: italic;
-  color: #f1f5f9;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-.author {
+  padding: 2.5rem;
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.5rem;
+  transition: all 0.3s;
 }
 
-.avatar {
-  width: 56px;
-  height: 56px;
+.dev-profile-card:hover {
+  border-style: solid;
+  border-color: rgba(96, 165, 250, 0.6);
+  background: rgba(30, 58, 138, 0.3);
+}
+
+.dev-avatar-placeholder {
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6, #93c5fd);
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid rgba(96, 165, 250, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
+  font-size: 1.5rem;
+  color: #94a3b8;
+}
+
+.dev-info h3 {
+  color: #f1f5f9;
   font-size: 1.25rem;
-  color: #020617;
+  margin-bottom: 0.25rem;
+}
+
+.dev-info p {
+  color: #64748b;
+  font-size: 0.95rem;
 }
 
 /* Footer */
@@ -323,8 +309,9 @@ h1, h2, h3, p {
   margin-top: 8rem;
   padding-top: 5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 3rem;
 }
 
@@ -332,6 +319,13 @@ h1, h2, h3, p {
   font-size: 1.75rem;
   font-weight: 800;
   color: #60a5fa;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
 }
 
 .footer h4 {
@@ -375,17 +369,21 @@ h1, h2, h3, p {
 @media (max-width: 1024px) {
   .bento-grid { grid-template-columns: 1fr 1fr; }
   .bento-wide { grid-column: span 2; }
-  .bento-tall { grid-column: span 2; min-height: 400px; }
+  .bento-tall { grid-column: span 1; min-height: 400px; }
   .bento-small { grid-column: span 1; }
   .feature-callout { grid-template-columns: 1fr; gap: 3rem; }
-  .footer { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 @media (max-width: 768px) {
   .bento-grid { grid-template-columns: 1fr; }
   .bento-wide, .bento-tall, .bento-small, .bento-medium { grid-column: span 1; }
-  .testimonials-grid { grid-template-columns: 1fr; }
-  .footer { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .devs-grid { grid-template-columns: 1fr; }
+  .footer { flex-direction: column; gap: 2rem; }
+  .footer-links { gap: 2rem; flex-direction: column; }
   .title { font-size: 2.75rem; }
-  .overlap-section { padding-top: 10vh; }
+  .overlap-section { padding-top: 5vh; }
+  .feature-callout { margin: 4rem 0; }
+  .developers-collab { margin: 6rem 0; }
+  .sticky-hero { padding: 0 1rem; }
+  .container { padding: 0 1.5rem; }
 }

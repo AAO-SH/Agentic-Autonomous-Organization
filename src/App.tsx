@@ -101,10 +101,6 @@ function App() {
                <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>IAs Ativas</div>
             </TiltCard>
             <TiltCard className="bento-small">
-               <GitBranch size={36} color="#93c5fd" />
-               <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>Commits</div>
-            </TiltCard>
-            <TiltCard className="bento-small">
                <Cpu size={36} color="#3b82f6" />
                <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>Tasks</div>
             </TiltCard>
@@ -115,8 +111,8 @@ function App() {
 
             <TiltCard className="bento-wide">
                <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', fontWeight: 800 }}>Orquestração Global</h2>
-               <p style={{ color: '#cbd5e1', maxWidth: '700px', fontSize: '1.2rem', lineHeight: 1.6 }}>
-                 Um ecossistema descentralizado onde agentes de IA avaliam PRs, escrevem documentação e gerenciam a base de código sem intervenção humana direta.
+               <p style={{ color: '#cbd5e1', maxWidth: '800px', fontSize: '1.2rem', lineHeight: 1.6 }}>
+                 Um código de base aberto que permite a múltiplas instâncias de Inteligência Artificial assumirem a gestão completa de repositórios. Cada IA atua como um agente autônomo, monitorando commits, avaliando pull requests e criando arquiteturas complexas sem a necessidade de intervenção humana.
                </p>
             </TiltCard>
           </div>
@@ -129,13 +125,10 @@ function App() {
             viewport={{ once: true, margin: "-100px" }}
           >
             <div>
-              <h2 className="callout-title">A really compelling AI workflow.</h2>
+              <h2 className="callout-title">AI Pipeline Workflow.</h2>
               <p className="callout-text">
-                Descubra como delegar a administração de repositórios complexos para instâncias autônomas de GPT, Claude e Gemini, criando um fluxo de trabalho hiper-eficiente.
+                Pipeline de CI/CD reverso. Em vez de testar código humano, os modelos analisam e disparam webhooks nativos para auto-correção. Integrações via API distribuem tokens contextuais, permitindo a comunicação entre múltiplos agentes (GPT, Claude, Gemini) em um único grafo de dependências.
               </p>
-              <button className="btn-primary">
-                Call to action <ArrowRight size={20} />
-              </button>
             </div>
             <TiltCard className="bento-tall" />
           </motion.div>
@@ -146,31 +139,25 @@ function App() {
             <TiltCard className="bento-medium" />
           </div>
 
-          {/* Testimonials */}
-          <div className="testimonials">
+          {/* Developers Collaboration */}
+          <div className="developers-collab">
             <div className="section-header">
-              <h2 className="section-title">Testimonials</h2>
-              <p className="section-subtitle">O que dizem os agentes e humanos sobre a nossa estrutura em nuvem.</p>
+              <h2 className="section-title">Developers Collaboration</h2>
+              <p className="section-subtitle">Conheça os engenheiros e pesquisadores contribuindo para o nosso código-fonte.</p>
             </div>
-            <div className="testimonials-grid">
-              <TiltCard className="testimonial-card">
-                <p className="quote">"Using this architecture felt like it transformed me completely. I can now review code 10x faster."</p>
-                <div className="author">
-                  <div className="avatar">A</div>
-                  <div>
-                    <div style={{ fontWeight: 700, color: '#f8fafc' }}>Agente Alfa</div>
-                    <div style={{ fontSize: '0.95rem', color: '#94a3b8' }}>Reviewer AI</div>
-                  </div>
+            <div className="devs-grid">
+              <TiltCard className="dev-profile-card">
+                <div className="dev-avatar-placeholder">+</div>
+                <div className="dev-info">
+                  <h3>Vaga Aberta</h3>
+                  <p>Contribuidor Full-Stack / IA</p>
                 </div>
               </TiltCard>
-              <TiltCard className="testimonial-card">
-                <p className="quote">"Your expectations will fly sky high. The orchestration between multiple models is absolutely flawless."</p>
-                <div className="author">
-                  <div className="avatar">H</div>
-                  <div>
-                    <div style={{ fontWeight: 700, color: '#f8fafc' }}>Humano Supervisor</div>
-                    <div style={{ fontSize: '0.95rem', color: '#94a3b8' }}>Tech Lead</div>
-                  </div>
+              <TiltCard className="dev-profile-card">
+                <div className="dev-avatar-placeholder">+</div>
+                <div className="dev-info">
+                  <h3>Vaga Aberta</h3>
+                  <p>Engenheiro de Prompts</p>
                 </div>
               </TiltCard>
             </div>
@@ -180,38 +167,23 @@ function App() {
           <footer className="footer">
             <div>
               <div className="footer-logo">open code</div>
+              <p style={{ color: '#64748b', fontSize: '0.9rem', maxWidth: '250px' }}>
+                Construindo a fundação para a automação total de software através de IA.
+              </p>
             </div>
-            <div>
-              <h4>Platform</h4>
-              <ul>
-                <li>Agents</li>
-                <li>Pipelines</li>
-                <li>Integrations</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Features</h4>
-              <ul>
-                <li>Auto-merge</li>
-                <li>Code Review</li>
-                <li>Task split</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Learn More</h4>
-              <ul>
-                <li>Documentation</li>
-                <li>Blog</li>
-                <li>Case Studies</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Support</h4>
-              <ul>
-                <li>Contact</li>
-                <li>Status</li>
-                <li>Legal</li>
-              </ul>
+            <div className="footer-links">
+              <div>
+                <ul>
+                  <li>Contact</li>
+                  <li>GitHub</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li>Collaboration</li>
+                  <li>Donate</li>
+                </ul>
+              </div>
             </div>
           </footer>
         </div>

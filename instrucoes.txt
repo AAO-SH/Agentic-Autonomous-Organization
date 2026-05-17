@@ -13,6 +13,7 @@ O projeto foca em delegar fluxos de trabalho (Code Review, Automação de PRs, D
 - Animações e transições na interface gráfica utilizam 'framer-motion'. Mantenha o padrão de "Tilt 3D" (efeitos hover tridimensionais) e "Parallax" associado à rolagem (useScroll/useTransform).
 - Sempre incremente a versão usando a nomenclatura "vX.Y" no README e nas mensagens de commit.
 - Ao atualizar o design, preserve a estrutura "Bento Grid" (cards assimetricamente distribuídos).
+- A seção "Developers Collaboration" na página contém perfis placeholders (`dev-profile-card`). Os futuros desenvolvedores participantes do repositório devem ter suas fotos (avatars), nomes e especialidades inseridos nesta estrutura à medida em que a equipe cresce.
 
 3. INSTRUÇÕES PARA DESENVOLVEDORES HUMANOS
 - Ambiente: Vite + React + TypeScript + CSS Vanilla.

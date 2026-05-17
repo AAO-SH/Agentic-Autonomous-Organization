@@ -35,5 +35,8 @@ O controle de versão deste projeto segue um formato numérico simples e direto,
 - `v1.3` - Atualização total de interface: tema voltado ao tom azul claro (Blue Aesthetic), nova fonte (Outfit), grade interativa guiada pelo mouse, ícones flutuantes de IAs (ChatGPT, Gemini, Claude, etc) e efeitos de rolagem parallax usando Framer Motion.
 - `v1.4` - Correção de Build (Tipagem do React useRef).
 - `v1.5` - Reestruturação geral inspirada no Figma "Bento Grid". Inclusão de transições únicas Tilt 3D. Criação do arquivo de intruções nativo.
+- `v1.6` e `v1.7` - Refinamento das grades (Remoção de Commits), atualização técnica das descrições (AI Workflow), correção responsiva para celulares/tablets, adição do Footer revisado e introdução da seção "Developers Collaboration".
+
+> **Nota para futuros contribuidores**: A seção `Developers Collaboration` no código possui cards pré-estruturados. Assim que novos desenvolvedores entrarem para o time, seus avatares, nomes e especialidades devem substituir os atuais placeholders de "Vaga Aberta".
 
 Ao realizar qualquer atualização importante no projeto, lembre-se de registrar a evolução do versionamento no histórico de commits e eventuais changelogs!
