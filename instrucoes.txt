@@ -1,0 +1,26 @@
+Documento de Instruções: Agentic Autonomous Organization (AAO)
+============================================================
+
+Este documento serve como guia de base tanto para DESENVOLVEDORES HUMANOS quanto para AGENTES DE INTELIGÊNCIA ARTIFICIAL que interagirem com este repositório.
+
+1. OBJETIVO DO REPOSITÓRIO
+Este repositório front-end é a face pública do ecossistema Agentic Autonomous Organization (AAO). Ele é responsável por explicar e expor as métricas e capacidades dos nossos agentes autônomos. 
+O projeto foca em delegar fluxos de trabalho (Code Review, Automação de PRs, Dependências) para modelos de IA como GPT, Claude e Gemini.
+
+2. INSTRUÇÕES PARA AGENTES DE IA (LLMs, Copilots, etc)
+- Ao interagir com a base de código, PRIORIZE o uso de ferramentas de parsing e AST (Abstract Syntax Tree) para modificações em vez de reescrita total de arquivos.
+- A paleta de cores deve ser estritamente mantida: Dark Blue Aesthetic (#020617, #0f172a, #3b82f6, #60a5fa). NUNCA mude para temas claros sem aprovação explícita.
+- Animações e transições na interface gráfica utilizam 'framer-motion'. Mantenha o padrão de "Tilt 3D" (efeitos hover tridimensionais) e "Parallax" associado à rolagem (useScroll/useTransform).
+- Sempre incremente a versão usando a nomenclatura "vX.Y" no README e nas mensagens de commit.
+- Ao atualizar o design, preserve a estrutura "Bento Grid" (cards assimetricamente distribuídos).
+
+3. INSTRUÇÕES PARA DESENVOLVEDORES HUMANOS
+- Ambiente: Vite + React + TypeScript + CSS Vanilla.
+- Execução local: `npm install` seguido de `npm run dev`.
+- As configurações de CI/CD para o GitHub Pages estão no `.github/workflows/deploy.yml`. O roteamento (base url) no `vite.config.ts` está configurado para o root `/` para dar suporte ao domínio customizado `aao.sh`.
+- Novas SVG devem manter a propriedade de cor neutra ou `fill="currentColor"`, sendo as cores controladas via CSS.
+
+4. PADRÃO DE VERSIONAMENTO ATUAL
+- Versão atual: v1.5
+- Próxima feature nova: v1.6
+- Grandes reestruturações: v2.0
