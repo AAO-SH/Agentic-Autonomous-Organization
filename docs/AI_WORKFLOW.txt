@@ -136,5 +136,3 @@ Cenário: Você corrigiu 2 warnings de CSS no index.css.
  Última atualização: 2026-05-17
  Responsável: Joao Alves / Agente IA (Antigravity)
 ========================================================
-
-TESTE
