@@ -32,7 +32,7 @@ const FloatingLogos = () => {
 };
 
 // Componente para card com Tilt 3D
-const TiltCard = ({ children, className }: { children: React.ReactNode, className?: string }) => {
+const TiltCard = ({ children, className }: { children?: React.ReactNode, className?: string }) => {
   return (
     <motion.div 
       className={`bento-card ${className}`}
