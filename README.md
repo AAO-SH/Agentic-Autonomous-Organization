@@ -45,6 +45,7 @@ O controle de versão deste projeto segue um formato numérico simples e direto,
 - `v1.9.2` - Adição de efeito luminoso (Glow Effect e Shine Effect) utilizando novas classes CSS (`.avatar-wrapper`, `.blue-glow`, `.purple-glow`) envolta dos avatares dos colaboradores.
 - `v1.9.3` - Hotfix: Correção de erro fatal de sintaxe TypeScript (`TS1128`, duplicação de tags) e otimização das props do componente `TiltCard`.
 - `v1.9.3` - Atualização autônoma: Modificações detectadas em `EADME.md`.
+- `v1.9.4` - Atualização autônoma: Modificações detectadas em `jest.config.cjs`, `src/App.tsx`, `ackage-lock.json`, `package.json`.
 
 
 > **Nota para futuros contribuidores**: A seção `Developers Collaboration` no código possui cards pré-estruturados. Assim que novos desenvolvedores entrarem para o time, seus avatares, nomes e especialidades devem substituir os atuais placeholders de "Vaga Aberta".

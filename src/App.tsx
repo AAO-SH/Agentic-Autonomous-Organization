@@ -141,7 +141,13 @@ function App() {
           </motion.div>
 
           {/* Developers Collaboration */}
-          <div className="developers-collab">
+          <motion.div 
+            className="developers-collab"
+            initial={{ opacity: 0, scale: 1.05, filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <div className="section-header">
               <h2 className="section-title">Developers Collaboration</h2>
               <p className="section-subtitle">Conheça os engenheiros e pesquisadores contribuindo para o nosso código-fonte.</p>
@@ -168,10 +174,16 @@ function App() {
                 </div>
               </TiltCard>
             </div>
-          </div>
+          </motion.div>
 
           {/* Footer */}
-          <footer className="footer">
+          <motion.footer 
+            className="footer"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             <div>
               <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', fontSize: '1.5rem' }}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg>
@@ -195,7 +207,7 @@ function App() {
                 </ul>
               </div>
             </div>
-          </footer>
+          </motion.footer>
         </div>
       </div>
     </div>
