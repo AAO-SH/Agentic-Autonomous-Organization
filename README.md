@@ -44,9 +44,6 @@ O controle de versão deste projeto segue um formato numérico simples e direto,
 - `v1.9.1` - Substituição dos placeholders por avatares reais (`avatar1.png`, `avatar2.png`) na seção "Developers Collaboration" utilizando a classe `.dev-avatar`.
 - `v1.9.2` - Adição de efeito luminoso (Glow Effect e Shine Effect) utilizando novas classes CSS (`.avatar-wrapper`, `.blue-glow`, `.purple-glow`) envolta dos avatares dos colaboradores.
 - `v1.9.3` - Hotfix: Correção de erro fatal de sintaxe TypeScript (`TS1128`, duplicação de tags) e otimização das props do componente `TiltCard`.
-- `v1.9.2` - Atualização autônoma: Modificações detectadas em `EADME.md`.
-- `v1.9.3` - Atualização autônoma: Modificações detectadas em `public/graph_symbol.png`, `rc/App.tsx`.
-- `v1.9.3` - Atualização autônoma: Modificações detectadas em `rc/App.tsx`.
 - `v1.9.3` - Atualização autônoma: Modificações detectadas em `EADME.md`.
 
 
