@@ -293,6 +293,15 @@ h1, h2, h3, p {
   color: #94a3b8;
 }
 
+.dev-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid rgba(96, 165, 250, 0.6);
+  object-fit: cover;
+  object-position: center;
+}
+
 .dev-info h3 {
   color: #f1f5f9;
   font-size: 1.25rem;
