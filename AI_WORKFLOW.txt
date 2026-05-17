@@ -1,0 +1,138 @@
+========================================================
+ AI_WORKFLOW.txt — Protocolo Obrigatório para Agentes IA
+ Projeto: Agentic Autonomous Organization (AAO)
+ Repositório: github.com/joao/Agentic-Autonomous-Organization
+========================================================
+
+LEIA ESTE ARQUIVO ANTES DE QUALQUER AÇÃO NO REPOSITÓRIO.
+
+Este documento define o protocolo que TODO agente de IA (LLM, Copilot, etc.)
+deve seguir ao interagir com este repositório. O não cumprimento pode gerar
+versões inconsistentes, histórico de commits sujo e falha no CI/CD.
+
+--------------------------------------------------------
+ SEÇÃO 1 — PADRÃO DE VERSIONAMENTO (Semantic Versioning)
+--------------------------------------------------------
+
+O projeto usa o esquema: vX.Y.Z
+
+  X = MAJOR  → Grandes reestruturações, mudanças de arquitetura (ex: v2.0)
+  Y = MINOR  → Novas features, novos componentes (ex: v1.11)
+  Z = PATCH  → Correções de bugs, ajustes de CSS, warnings, typos (ex: v1.9.7)
+
+VERSÃO ATUAL: v1.9.6  (definida no instrucoes.txt)
+
+REGRAS DE INCREMENTO:
+  - Corrigi um warning de CSS?               → PATCH  (+0.0.1)
+  - Adicionei um novo componente/seção?      → MINOR  (+0.1.0)
+  - Refatorei a arquitetura do projeto?      → MAJOR  (+1.0.0)
+
+NUNCA pule versões. Sempre leia a versão atual no instrucoes.txt antes de
+definir o próximo número.
+
+--------------------------------------------------------
+ SEÇÃO 2 — PROTOCOLO DE ATUALIZAÇÃO (Passo a Passo)
+--------------------------------------------------------
+
+Após QUALQUER alteração nos arquivos do projeto, execute OBRIGATORIAMENTE
+os passos abaixo, NA ORDEM INDICADA:
+
+PASSO 1 — Determinar o tipo de mudança e a nova versão
+  → Classifique a mudança: PATCH / MINOR / MAJOR
+  → Calcule o novo número de versão com base na versão atual do instrucoes.txt
+
+PASSO 2 — Atualizar a documentação
+  a) Editar `instrucoes.txt`:
+     - Altere "Versão atual: vX.Y.Z" para o novo número
+     - Se for MINOR ou MAJOR, atualize "Próxima feature nova" e "Grandes reestruturações"
+
+  b) Editar `README.md`:
+     - Atualize o badge ou menção de versão no topo do arquivo (se existir)
+     - Adicione entrada no changelog interno (se existir seção)
+
+PASSO 3 — Executar git add (incluir todos os arquivos modificados)
+  Comando: git add .
+  OU para ser mais preciso: git add <arquivo1> <arquivo2> ...
+
+PASSO 4 — Executar git commit com mensagem padronizada
+  Formato obrigatório da mensagem de commit:
+    [TIPO] vX.Y.Z — Descrição concisa da mudança
+
+  Tipos aceitos:
+    fix      → Correção de bug ou warning
+    feat     → Nova funcionalidade
+    refactor → Refatoração sem mudança de comportamento
+    style    → Mudança visual, CSS, animações
+    docs     → Atualização de documentação apenas
+    test     → Adição/atualização de testes
+    ci       → Mudança em CI/CD (GitHub Actions, deploy.yml)
+    chore    → Tarefas de manutenção (atualização de deps, etc.)
+
+  Exemplos:
+    git commit -m "fix v1.9.7 — Add standard background-clip for CSS compatibility"
+    git commit -m "feat v1.11.0 — Add new AI metrics dashboard section"
+    git commit -m "docs v1.9.7 — Update instrucoes.txt with AI workflow protocol"
+
+PASSO 5 — Executar git push
+  Comando: git push origin main
+  (O CI/CD do GitHub Actions fará o deploy automático para o GitHub Pages)
+
+--------------------------------------------------------
+ SEÇÃO 3 — VERIFICAÇÕES PÓS-PUSH
+--------------------------------------------------------
+
+Após o push, confirme:
+  1. O GitHub Actions executou com sucesso (sem erros no deploy.yml)
+  2. Os testes Jest passaram (npm run test)
+  3. O build de produção compila sem erros (npm run build)
+
+Se qualquer etapa falhar:
+  - Analise o erro ANTES de tentar corrigir
+  - Faça uma nova correção e repita o protocolo do PASSO 1 ao PASSO 5
+  - NÃO force push (git push --force) sem aprovação explícita do mantenedor
+
+--------------------------------------------------------
+ SEÇÃO 4 — REGRAS GERAIS DO PROJETO
+--------------------------------------------------------
+
+STACK TECNOLÓGICA:
+  - Framework:  Vite + React 19 + TypeScript
+  - Estilo:     CSS Vanilla (index.css) — SEM Tailwind
+  - Animações:  framer-motion (Tilt 3D + Parallax com useScroll/useTransform)
+  - Testes:     Jest + @testing-library/react
+  - Deploy:     GitHub Actions → GitHub Pages (domínio: aao.sh)
+
+PALETA DE CORES (NUNCA ALTERAR SEM APROVAÇÃO):
+  Background principal: #020617
+  Background secundário: #0f172a
+  Azul primário:        #3b82f6
+  Azul claro:           #60a5fa
+
+ESTRUTURA PROIBIDA DE ALTERAR:
+  - Layout "Bento Grid" (cards assimétricos)
+  - Efeitos "Tilt 3D" no hover
+  - Efeito "Parallax" no scroll (sticky hero)
+
+ESTRUTURA PERMITIDA DE EXPANDIR:
+  - Seção "Developers Collaboration" (adicionar novos perfis)
+  - Métricas e dados dos agentes autônomos
+  - Novos cards no Bento Grid
+
+--------------------------------------------------------
+ SEÇÃO 5 — EXEMPLO COMPLETO DE EXECUÇÃO
+--------------------------------------------------------
+
+Cenário: Você corrigiu 2 warnings de CSS no index.css.
+
+  1. Tipo: PATCH → nova versão: v1.9.7
+  2. Atualize instrucoes.txt: "Versão atual: v1.9.7"
+  3. git add src/index.css instrucoes.txt
+  4. git commit -m "fix v1.9.7 — Add standard background-clip for CSS compatibility"
+  5. git push origin main
+  6. Verifique: Actions passou? Testes passaram? Build OK?
+
+--------------------------------------------------------
+ FIM DO DOCUMENTO
+ Última atualização: 2026-05-17
+ Responsável: Joao Alves / Agente IA (Antigravity)
+========================================================
