@@ -169,7 +169,7 @@ function App() {
                 </div>
                 <div className="dev-info">
                   <h3>Em Breve</h3>
-                  <p> Em Breve</p>
+                  <p> Em Breve.</p>
                 </div>
               </TiltCard>
             </div>
