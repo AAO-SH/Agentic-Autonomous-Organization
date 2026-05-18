@@ -158,8 +158,8 @@ function App() {
                   <div className="shine-effect"></div>
                 </div>
                 <div className="dev-info">
-                  <h3>Vaga Aberta</h3>
-                  <p>Contribuidor Full-Stack / IA</p>
+                  <h3>Em Breve</h3>
+                  <p>Em Breve</p>
                 </div>
               </TiltCard>
               <TiltCard className="dev-profile-card">
@@ -168,8 +168,8 @@ function App() {
                   <div className="shine-effect"></div>
                 </div>
                 <div className="dev-info">
-                  <h3>Vaga Aberta</h3>
-                  <p>Engenheiro de Prompts</p>
+                  <h3>Em Breve</h3>
+                  <p> Em Breve</p>
                 </div>
               </TiltCard>
             </div>
