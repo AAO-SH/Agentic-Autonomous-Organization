@@ -4,13 +4,16 @@ Bem-vindo ao repositório **Agentic Autonomous Organization**. Este projeto open
 
 ## 🎨 Design e Interface
 
-O front-end foi construído com um design minimalista, focado na estética "Dark Mode" característica das ferramentas de Inteligência Artificial mais avançadas do mercado. As cores, os contrastes e as animações suaves ("glassmorphism", gradientes azuis/roxos) foram escolhidos para passar uma sensação de modernidade e sofisticação premium.
+O front-end foi construído com um design minimalista, focado na estética "Dark Mode" característica das ferramentas de Inteligência Artificial mais avançadas do mercado. As cores, os contrastes e as animações suaves ("glassmorphism", gradientes vítreos da Aurora) foram escolhidos para passar uma sensação de modernidade e sofisticação premium.
+
+A navegação ocorre através de uma SPA (Single Page Application) em formato de **Apresentação de Slides Horizontais**, garantindo foco na retenção do usuário.
 
 ### Tecnologias Utilizadas
-- **React**: Biblioteca principal para a construção da interface do usuário.
+- **React 19**: Biblioteca principal para a construção da interface do usuário.
 - **Vite**: Ferramenta de build super rápida e otimizada.
-- **TypeScript**: Superset de JavaScript que adiciona tipagem estática e segurança ao código.
-- **CSS Vanilla**: Estilização direta, mantendo alta flexibilidade e controle no design.
+- **TypeScript**: Superset de JavaScript que adiciona tipagem estática.
+- **Tailwind CSS**: Framework utilitário usado para estruturação e layout rápido.
+- **CSS Nativo**: Para renderização extrema e manipulação de animações de fundo complexas (Aurora e DotField) garantindo máxima performance (PageSpeed 100/100).
 
 ## 🚀 Como Executar o Projeto Localmente
 
@@ -28,31 +31,20 @@ O front-end foi construído com um design minimalista, focado na estética "Dark
 
 ## 🚀 Padrão de Versionamento
 
-O controle de versão deste projeto segue um formato numérico simples e direto, usando o prefixo **v**. 
+O controle de versão deste projeto segue o Semantic Versioning (vX.Y.Z). 
 
 - `v1.0` - Versão inicial / Lançamento.
-- `v1.1` e `v1.2` - Configurações de Deploy no GitHub Pages e CNAME.
-- `v1.3` - Atualização total de interface: tema voltado ao tom azul claro (Blue Aesthetic), nova fonte (Outfit), grade interativa guiada pelo mouse, ícones flutuantes de IAs (ChatGPT, Gemini, Claude, etc) e efeitos de rolagem parallax usando Framer Motion.
-- `v1.4` - Correção de Build (Tipagem do React useRef).
-- `v1.5` - Reestruturação geral inspirada no Figma "Bento Grid". Inclusão de transições únicas Tilt 3D. Criação do arquivo de intruções nativo.
-- `v1.6` e `v1.7` - Refinamento das grades (Remoção de Commits), atualização técnica das descrições (AI Workflow), correção responsiva para celulares/tablets, adição do Footer revisado e introdução da seção "Developers Collaboration".
-- `v1.7.1` - Hotfix para erros de tipagem e imports não utilizados no React.
-- `v1.8` - Refinamento total de margens e espaçamentos (redução de espaços vazios), adição de ilustrações no Workflow, e redesign da marca e gradiente "open code" no site.
-- `v1.8.1` - Atualização da documentação base do projeto (README e instruções) para versões mais recentes.
-- `v1.8.2` - Padronização de formatação de tags JSX auto-fechadas no `App.tsx` e inclusão da classe CSS `.dev-avatar` no `index.css`.
-- `v1.9` - Otimização de performance e interatividade: suporte a eventos touch para o fundo interativo, aceleração por GPU (hardware layers) com transição suave, animações de entrada com atraso escalonado (staggered delay) para os cards Bento e suporte completo a telas ultra-mobile (<= 480px).
-- `v1.9.1` - Substituição dos placeholders por avatares reais (`avatar1.png`, `avatar2.png`) na seção "Developers Collaboration" utilizando a classe `.dev-avatar`.
-- `v1.9.2` - Adição de efeito luminoso (Glow Effect e Shine Effect) utilizando novas classes CSS (`.avatar-wrapper`, `.blue-glow`, `.purple-glow`) envolta dos avatares dos colaboradores.
-- `v1.9.3` - Hotfix: Correção de erro fatal de sintaxe TypeScript (`TS1128`, duplicação de tags) e otimização das props do componente `TiltCard`.
-- `v1.10` - Integração de Metodologia TDD com Jest: Adição de testes unitários de renderização (`App.test.tsx`), testes de integração de Build via script (`build.test.ts`) e bloqueio no CI/CD (GitHub Actions) que previne o deploy no GitHub Pages se houver erros no código.
-- v1.9.4 - Atualização autônoma: Modificações consolidadas em configurações, pacotes e testes (`jest.config.cjs`, `jest.setup.ts`, `package.json`, `github/workflows/deploy.yml`, `src/App.test.tsx`, etc).
-- v1.10.1 - Atualização autônoma: Modificações gerais detectadas em `tsconfig.app.json`, `src/App.tsx`, `package-lock.json`, `__mocks__/fileMock.cjs`, `src/build.test.ts`, `src/App.test.tsx`, `package.json`, `jest.setup.ts`, `jest.config.cjs` e no `README.md`.
-- v1.9.5 - Atualização autônoma: Modificações na documentação (README e instrucoes).
-- v1.9.6 - Atualização de UI: Remoção do efeito de chiado/embaçado do fundo (`noise-overlay`) no `App.tsx`.
+- (...)
+- `v1.10.1` - Atualização autônoma: Modificações gerais detectadas em configurações, pacotes e testes de CI/CD.
+- `v2.0.0` - **Reescrita Total de Arquitetura (Major Update)**: 
+  - Mudança do layout "Bento Grid" para SPA de Slides Horizontais.
+  - Implementação do Tailwind CSS.
+  - Substituição do `framer-motion` por animações Nativas CSS para otimização extrema.
+  - Inclusão do Menu Nav estilo Liquid Glass Apple Premium.
+  - Dead Code Elimination e otimização `React.memo` para atingir nota máxima no Google PageSpeed Insights.
+- **`v2.0.3` (ATUAL)** - Adição da nova seção "Ecossistema Integrado", máscara de segurança "Em Breve" (Easter Egg) e nova navegação guiada por botões Liquid Glass.
 
-
-> **Nota para futuros contribuidores**: A seção `Developers Collaboration` no código possui cards pré-estruturados. Assim que novos desenvolvedores entrarem para o time, seus avatares, nomes e especialidades devem substituir os atuais placeholders de "Vaga Aberta".
+> **Nota para futuros contribuidores**: O projeto abandonou a arquitetura antiga de rolagem vertical pesada em favor de máxima velocidade. Respeitem o protocolo do `React.memo` ao adicionar novos componentes de renderização intensiva.
 
 Ao realizar qualquer atualização importante no projeto, lembre-se de registrar a evolução do versionamento no histórico de commits e eventuais changelogs!
 
-<!-- Commit All-Nighter -->

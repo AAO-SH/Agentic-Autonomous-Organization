@@ -1,216 +1,106 @@
-import { useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Bot, Cpu, Network } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import AnimatedBackground from './components/AnimatedBackground';
+import HeroSection from './components/sections/HeroSection';
+import HowItWorksSection from './components/sections/HowItWorksSection';
+import EcosystemSection from './components/sections/EcosystemSection';
+import RepoSection from './components/sections/RepoSection';
 import './index.css';
+import './components/Navbar.css';
 
-const FloatingLogos = () => {
-  return (
-    <div className="floating-logos-container">
-      <motion.svg width="100" height="100" viewBox="0 0 24 24" className="floating-logo"
-        style={{ top: '15%', left: '10%', opacity: 0.15 }}
-        animate={{ y: [0, -40, 0], rotate: [0, 15, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <path fill="#60a5fa" d="M22.28 9.82a6 6 0 00-7.02-7.81 6 6 0 00-10.28 5.8 6 6 0 00.32 12.01 6 6 0 007.02 7.81 6 6 0 0010.28-5.8 6 6 0 00-.32-12.01zm-10.87 12.02a4.48 4.48 0 01-3.65-1.92l5.31-3.07v1.87l-1.66 1.69z" />
-      </motion.svg>
-      <motion.svg width="80" height="80" viewBox="0 0 24 24" className="floating-logo"
-        style={{ top: '50%', left: '85%', opacity: 0.2 }}
-        animate={{ y: [0, 50, 0], scale: [1, 1.2, 1], rotate: [0, -20, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      >
-        <path fill="#93c5fd" d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z" />
-      </motion.svg>
-      <motion.svg width="120" height="120" viewBox="0 0 24 24" className="floating-logo"
-        style={{ top: '75%', left: '15%', opacity: 0.1 }}
-        animate={{ x: [0, 40, 0], rotate: [0, 10, 0] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      >
-        <path fill="#3b82f6" d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-      </motion.svg>
-    </div>
-  );
-};
-
-// Componente para card com Tilt 3D
-const TiltCard = ({ children, className, style }: { children?: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
-  return (
-    <motion.div
-      className={`bento-card ${className}`}
-      style={style}
-      whileHover={{ scale: 1.02, rotateX: 2, rotateY: -2 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      viewport={{ once: true }}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-    >
-      {children}
-    </motion.div>
-  );
-};
+const TABS = ['Apresentação', 'Como Funciona', 'Ecossistema', 'Repositório'];
 
 function App() {
-  const { scrollYProgress } = useScroll();
-  const smoothScroll = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
+  const [direction, setDirection] = useState<'up' | 'down'>('down');
+  const isScrolling = useRef(false);
 
-  // O Hero diminui e fica escuro conforme rolamos
-  const heroScale = useTransform(smoothScroll, [0, 0.4], [1, 0.8]);
-  const heroOpacity = useTransform(smoothScroll, [0, 0.3], [1, 0.2]);
+  const changeTab = (newIndex: number) => {
+    if (newIndex === activeTab) return;
+    setDirection(newIndex > activeTab ? 'down' : 'up');
+    setActiveTab(newIndex);
+  };
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    if (!isUnlocked) return;
+    const handleWheel = (e: WheelEvent) => {
+      if (isScrolling.current) return;
+      isScrolling.current = true;
+      setTimeout(() => isScrolling.current = false, 600);
+
+      if (e.deltaY > 0) {
+        if (activeTab < TABS.length - 1) changeTab(activeTab + 1);
+      } else {
+        if (activeTab > 0) changeTab(activeTab - 1);
+      }
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    return () => window.removeEventListener('wheel', handleWheel);
+  }, [activeTab, TABS.length, isUnlocked]);
+
+  if (!isUnlocked) {
+    return (
+      <div className="w-screen h-screen bg-black text-white flex items-center justify-center text-4xl tracking-[0.2em] font-light uppercase select-none">
+        <span>Em Br</span>
+        <span onClick={() => setIsUnlocked(true)} className="cursor-pointer hover:text-white/80 transition-colors duration-300">E</span>
+        <span>v</span>
+        <span onClick={() => setIsUnlocked(true)} className="cursor-pointer hover:text-white/80 transition-colors duration-300">E</span>
+      </div>
+    );
+  }
+
+  const renderSection = () => {
+    const animationClass = direction === 'down' ? 'slide-enter-right' : 'slide-enter-left';
+    
+    switch (activeTab) {
+      case 0:
+        return <HeroSection key="hero" animationClass={animationClass} onNext={() => changeTab(1)} />;
+      case 1:
+        return <HowItWorksSection key="how" animationClass={animationClass} onNext={() => changeTab(2)} />;
+      case 2:
+        return <EcosystemSection key="eco" animationClass={animationClass} onNext={() => changeTab(3)} />;
+      case 3:
+        return <RepoSection key="repo" animationClass={animationClass} />;
+      default:
+        return <HeroSection key="hero" animationClass={animationClass} onNext={() => changeTab(1)} />;
+    }
+  };
 
   return (
-    <div className="page-wrapper">
-      <div className="grid-bg"></div>
-      <div className="ambient-light"></div>
-      <FloatingLogos />
+    <div className="w-screen h-screen overflow-hidden bg-slate-950 flex flex-col text-white font-sans selection:bg-blue-500/30">
+      <AnimatedBackground />
 
-      <header className="top-header">
-        <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg>
-          <span style={{ background: 'linear-gradient(to right, #60a5fa, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.02em' }}>open code</span>
+      <header className="absolute top-0 left-0 right-0 pt-8 pb-4 flex justify-center items-center z-50 pointer-events-none">
+        <div className="relative inline-flex p-[6px] rounded-full bg-white/5 backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] pointer-events-auto">
+          
+          <div 
+            className="absolute top-[6px] bottom-[6px] rounded-full bg-white/10 border border-white/20 shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),0_4px_15px_rgba(255,255,255,0.1)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            style={{ 
+              width: '128px',
+              left: `${6 + activeTab * 128}px`
+            }}
+          />
+
+          {TABS.map((tab, idx) => (
+            <button
+              key={tab}
+              onClick={() => changeTab(idx)}
+              className={`relative z-10 w-32 py-2 text-sm font-medium transition-colors duration-300 ${
+                activeTab === idx ? 'text-white drop-shadow-md' : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
         </div>
       </header>
 
-      {/* Hero Fixo que vai pro fundo */}
-      <div className="sticky-hero">
-        <motion.div
-          className="hero-content"
-          style={{ scale: heroScale, opacity: heroOpacity }}
-        >
-          <h1 className="title">Agentic Autonomous Organization</h1>
-          <div className="hero-tags">
-            <span className="tag">Open Source</span>
-            <span className="tag">AI Driven</span>
-            <span className="tag">Auto-managed</span>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Seção que sobrepõe o Hero */}
-      <div className="overlap-section">
-        <div className="container">
-
-          {/* Bento Grid */}
-          <div className="bento-grid">
-            <TiltCard className="bento-small">
-              <Bot size={36} color="#60a5fa" />
-              <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>IAs Ativas</div>
-            </TiltCard>
-            <TiltCard className="bento-small">
-              <Cpu size={36} color="#3b82f6" />
-              <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>Tasks</div>
-            </TiltCard>
-            <TiltCard className="bento-small">
-              <Network size={36} color="#e2e8f0" />
-              <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>Nós</div>
-            </TiltCard>
-
-            <TiltCard className="bento-wide">
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', fontWeight: 800 }}>Orquestração Global</h2>
-              <p style={{ color: '#cbd5e1', maxWidth: '800px', fontSize: '1.2rem', lineHeight: 1.6 }}>
-                Um código de base aberto que permite a múltiplas instâncias de Inteligência Artificial assumirem a gestão completa de repositórios. Cada IA atua como um agente autônomo, monitorando commits, avaliando pull requests e criando arquiteturas complexas sem a necessidade de intervenção humana.
-              </p>
-            </TiltCard>
-          </div>
-
-          {/* Feature Callout */}
-          <motion.div
-            className="feature-callout"
-            initial={{ opacity: 0, x: -80, scale: 0.95 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ type: "spring", stiffness: 80, damping: 20 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <div>
-              <h2 className="callout-title">AI Pipeline Workflow.</h2>
-              <p className="callout-text">
-                Pipeline de CI/CD reverso. Em vez de testar código humano, os modelos analisam e disparam webhooks nativos para auto-correção. Integrações via API distribuem tokens contextuais, permitindo a comunicação entre múltiplos agentes (GPT, Claude, Gemini) em um único grafo de dependências.
-              </p>
-            </div>
-            <TiltCard className="bento-tall" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: 0 }}>
-              <img src="/graph_symbol.png" alt="Graph Network Symbol" style={{ width: '100%', height: '100%', objectFit: 'cover', mixBlendMode: 'screen' }} />
-            </TiltCard>
-          </motion.div>
-
-          {/* Developers Collaboration */}
-          <motion.div 
-            className="developers-collab"
-            initial={{ opacity: 0, scale: 1.05, filter: "blur(8px)" }}
-            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <div className="section-header">
-              <h2 className="section-title">Developers Collaboration</h2>
-              <p className="section-subtitle">Conheça os engenheiros e pesquisadores contribuindo para o nosso código-fonte.</p>
-            </div>
-            <div className="devs-grid">
-              <TiltCard className="dev-profile-card">
-                <div className="avatar-wrapper blue-glow">
-                  <img src="/avatar1.png" alt="Developer Slot" className="dev-avatar" />
-                  <div className="shine-effect"></div>
-                </div>
-                <div className="dev-info">
-                  <h3>Em Breve</h3>
-                  <p>Em Breve</p>
-                </div>
-              </TiltCard>
-              <TiltCard className="dev-profile-card">
-                <div className="avatar-wrapper purple-glow">
-                  <img src="/avatar2.png" alt="Prompt Engineer Slot" className="dev-avatar" />
-                  <div className="shine-effect"></div>
-                </div>
-                <div className="dev-info">
-                  <h3>Em Breve</h3>
-                  <p> Em Breve</p>
-                </div>
-              </TiltCard>
-            </div>
-          </motion.div>
-
-          {/* Footer */}
-          <motion.footer 
-            className="footer"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            <div>
-              <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', fontSize: '1.5rem' }}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg>
-                <span style={{ background: 'linear-gradient(to right, #60a5fa, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 800 }}>open code</span>
-              </div>
-              <p style={{ color: '#64748b', fontSize: '0.95rem', maxWidth: '300px', lineHeight: 1.6 }}>
-                Construindo a fundação para a automação total de software através de IA.
-              </p>
-            </div>
-            <div className="footer-links">
-              <div>
-                <ul>
-                  <li>Contact</li>
-                  <li>GitHub</li>
-                </ul>
-              </div>
-              <div>
-                <ul>
-                  <li>Collaboration</li>
-                  <li>Donate</li>
-                </ul>
-              </div>
-            </div>
-          </motion.footer>
-        </div>
-      </div>
+      {/* Main Content Area */}
+      <main className="relative z-10 w-full h-full overflow-hidden">
+        {renderSection()}
+      </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

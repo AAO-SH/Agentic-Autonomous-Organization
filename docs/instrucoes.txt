@@ -8,26 +8,24 @@ Este repositório front-end é a face pública do ecossistema Agentic Autonomous
 O projeto foca em delegar fluxos de trabalho (Code Review, Automação de PRs, Dependências) para modelos de IA como GPT, Claude e Gemini.
 
 2. INSTRUÇÕES PARA AGENTES DE IA (LLMs, Copilots, etc)
-- Ao interagir com a base de código, PRIORIZE o uso de ferramentas de parsing e AST (Abstract Syntax Tree) para modificações em vez de reescrita total de arquivos.
-- A paleta de cores deve ser estritamente mantida: Dark Blue Aesthetic (#020617, #0f172a, #3b82f6, #60a5fa). NUNCA mude para temas claros sem aprovação explícita.
-- Animações e transições na interface gráfica utilizam 'framer-motion'. Mantenha o padrão de "Tilt 3D" (efeitos hover tridimensionais) e "Parallax" associado à rolagem (useScroll/useTransform).
+- A paleta de cores deve ser estritamente mantida: Minimalista Dark Mode (Preto puro absoluto) com acentos vítreos. NUNCA mude para temas claros.
+- Estilização: Utilizar **Tailwind CSS** para classes utilitárias, complementado com CSS puro (`index.css` e `Navbar.css`) apenas para efeitos avançados de Liquid Glass e animações.
+- Animações: NUNCA utilizar bibliotecas pesadas como framer-motion ou react-spring. O projeto preza pela performance 100/100 no PageSpeed usando exclusivamente transições CSS Nativas ultra-otimizadas.
+- O Layout segue um modelo de "Apresentação em Slides Horizontais", gerenciado via React state puro (`App.tsx`) ativado por eventos nativos de `wheel` do mouse.
 - Sempre incremente a versão usando a nomenclatura "vX.Y.Z" (Semantic Versioning) no instrucoes.txt, README e nas mensagens de commit.
-- OBRIGATÓRIO: Leia e siga o arquivo `AI_WORKFLOW.txt` na raiz do repositório antes de qualquer alteração. Ele define o protocolo completo de versionamento, atualização de docs e git commit/push.
-- Ao atualizar o design, preserve a estrutura "Bento Grid" (cards assimetricamente distribuídos).
-- A seção "Developers Collaboration" na página contém perfis placeholders (`dev-profile-card`). Os futuros desenvolvedores participantes do repositório devem ter suas fotos (avatars), nomes e especialidades inseridos nesta estrutura à medida em que a equipe cresce.
+- OBRIGATÓRIO: Leia e siga o arquivo `docs/AI_WORKFLOW.txt` antes de qualquer alteração. Ele define o protocolo completo de versionamento e regras arquiteturais.
 
 3. INSTRUÇÕES PARA DESENVOLVEDORES HUMANOS
-- Ambiente: Vite + React + TypeScript + CSS Vanilla.
+- Ambiente: Vite + React + TypeScript + Tailwind CSS.
 - Execução local: `npm install` seguido de `npm run dev`.
-- As configurações de CI/CD para o GitHub Pages estão no `.github/workflows/deploy.yml`. O roteamento (base url) no `vite.config.ts` está configurado para o root `/` para dar suporte ao domínio customizado `aao.sh`.
-- Novas SVG devem manter a propriedade de cor neutra ou `fill="currentColor"`, sendo as cores controladas via CSS.
+- Arquitetura de Performance: Toda renderização pesada (Aurora e DotField) está protegida por `React.memo` para evitar recálculos durante a navegação. O bundle principal foi otimizado para possuir < 65KB.
+- As configurações de CI/CD para o GitHub Pages estão no `.github/workflows/deploy.yml`. O roteamento (base url) no `vite.config.ts` está configurado para o root `/`.
 
 4. PADRÃO DE VERSIONAMENTO ATUAL
-- Versão atual: v1.9.7
-- Próxima feature nova: v1.10
-- Grandes reestruturações: v2.0
+- Versão atual: v2.0.3
+- Próxima feature nova: v2.1.0
+- Grandes reestruturações: v3.0.0
 
 5. PROTOCOLO DE WORKFLOW PARA AGENTES IA
-- O arquivo `AI_WORKFLOW.txt` na raiz do repositório contém o protocolo completo.
+- O arquivo `docs/AI_WORKFLOW.txt` contém o protocolo completo.
 - Todo agente de IA DEVE lê-lo antes de iniciar qualquer sessão de trabalho.
-- O protocolo cobre: como versionar, como atualizar docs, formato dos commits e como executar o git push.

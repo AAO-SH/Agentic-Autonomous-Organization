@@ -16,11 +16,11 @@ versões inconsistentes, histórico de commits sujo e falha no CI/CD.
 
 O projeto usa o esquema: vX.Y.Z
 
-  X = MAJOR  → Grandes reestruturações, mudanças de arquitetura (ex: v2.0)
-  Y = MINOR  → Novas features, novos componentes (ex: v1.11)
-  Z = PATCH  → Correções de bugs, ajustes de CSS, warnings, typos (ex: v1.9.7)
+  X = MAJOR  → Grandes reestruturações, mudanças de arquitetura (ex: v2.0.0)
+  Y = MINOR  → Novas features, novos componentes (ex: v2.1.0)
+  Z = PATCH  → Correções de bugs, ajustes de CSS, warnings, typos (ex: v2.0.1)
 
-VERSÃO ATUAL: v1.9.6  (definida no instrucoes.txt)
+VERSÃO ATUAL: v2.0.3  (definida no instrucoes.txt)
 
 REGRAS DE INCREMENTO:
   - Corrigi um warning de CSS?               → PATCH  (+0.0.1)
@@ -69,9 +69,8 @@ PASSO 4 — Executar git commit com mensagem padronizada
     chore    → Tarefas de manutenção (atualização de deps, etc.)
 
   Exemplos:
-    git commit -m "fix v1.9.7 — Add standard background-clip for CSS compatibility"
-    git commit -m "feat v1.11.0 — Add new AI metrics dashboard section"
-    git commit -m "docs v1.9.7 — Update instrucoes.txt with AI workflow protocol"
+    git commit -m "style v2.0.1 — Adjust Aurora background wave animation"
+    git commit -m "feat v2.1.0 — Add new internal agents dashboard section"
 
 PASSO 5 — Executar git push
   Comando: git push origin main
@@ -97,43 +96,39 @@ Se qualquer etapa falhar:
 
 STACK TECNOLÓGICA:
   - Framework:  Vite + React 19 + TypeScript
-  - Estilo:     CSS Vanilla (index.css) — SEM Tailwind
-  - Animações:  framer-motion (Tilt 3D + Parallax com useScroll/useTransform)
-  - Testes:     Jest + @testing-library/react
+  - Estilo:     Tailwind CSS + CSS Nativo Avançado
+  - Animações:  CSS Nativo exclusivo (Sem Framer Motion, performance extrema)
+  - Layout:     SPA com Transições em Slides Horizontais via State puro e Scroll Mouse Event
   - Deploy:     GitHub Actions → GitHub Pages (domínio: aao.sh)
 
 PALETA DE CORES (NUNCA ALTERAR SEM APROVAÇÃO):
-  Background principal: #020617
-  Background secundário: #0f172a
-  Azul primário:        #3b82f6
-  Azul claro:           #60a5fa
+  - Foco Exclusivo em Dark Mode (Pretos absolutos e Liquid Glass)
 
 ESTRUTURA PROIBIDA DE ALTERAR:
-  - Layout "Bento Grid" (cards assimétricos)
-  - Efeitos "Tilt 3D" no hover
-  - Efeito "Parallax" no scroll (sticky hero)
+  - A lógica de transição horizontal de SPA no `App.tsx`
+  - A otimização `React.memo` dos componentes gráficos (`DotField`, `Aurora`, Sections)
 
 ESTRUTURA PERMITIDA DE EXPANDIR:
-  - Seção "Developers Collaboration" (adicionar novos perfis)
-  - Métricas e dados dos agentes autônomos
-  - Novos cards no Bento Grid
+  - Novas abas de navegação no `TABS` array
+  - Inserção de conteúdo dentro das Sections (`Hero`, `HowItWorks`, `Repo`)
+  - Personalização fina da Aurora no `index.css`
 
 --------------------------------------------------------
  SEÇÃO 5 — EXEMPLO COMPLETO DE EXECUÇÃO
 --------------------------------------------------------
 
-Cenário: Você corrigiu 2 warnings de CSS no index.css.
+Cenário: Você ajustou a opacidade da Aurora no index.css.
 
-  1. Tipo: PATCH → nova versão: v1.9.7
-  2. Atualize instrucoes.txt: "Versão atual: v1.9.7"
-  3. git add src/index.css instrucoes.txt
-  4. git commit -m "fix v1.9.7 — Add standard background-clip for CSS compatibility"
+  1. Tipo: PATCH → nova versão: v2.0.1
+  2. Atualize instrucoes.txt: "Versão atual: v2.0.1"
+  3. git add src/index.css docs/instrucoes.txt
+  4. git commit -m "style v2.0.1 — Update Aurora opacity for better contrast"
   5. git push origin main
   6. Verifique: Actions passou? Testes passaram? Build OK?
 
 --------------------------------------------------------
  FIM DO DOCUMENTO
- Última atualização: 2026-05-17
+ Última atualização: 2026-05-24
  Responsável: Joao Alves / Agente IA (Antigravity)
 ========================================================
 

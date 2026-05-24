@@ -1,0 +1,71 @@
+/* Navbar.css - iOS Premium Liquid Glass 3D */
+
+.navbar-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.navbar-container {
+  position: relative;
+  display: inline-flex;
+  padding: 4px;
+  border-radius: 9999px;
+  /* Fundo e vidro idênticos ao card 'Arquitetura de Agentes' (bg-white/5, backdrop-blur-xl) */
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: auto;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+}
+
+.navbar-indicator {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  border-radius: 9999px;
+  /* O indicador (pílula) recebe um vidro leitoso, borda fina e sombra 3D */
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0px 3px 8px rgba(0, 0, 0, 0.12), 
+    0px 3px 1px rgba(0, 0, 0, 0.04), 
+    inset 0px 1px 1px rgba(255, 255, 255, 0.2); /* Brilho de refração no topo */
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1); /* Animação mais leve e rápida */
+}
+
+.navbar-button {
+  position: relative;
+  z-index: 10;
+  width: 130px;
+  padding: 6px 0;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.navbar-button:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-button.active {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}

@@ -7,7 +7,7 @@ module.exports = {
     '\\.(gif|ttf|eot|svg|png|jpg|jpeg)$': '<rootDir>/__mocks__/fileMock.cjs',
   },
   transform: {
-    '^.+\\.tsx?$': ['ts-jest', { 
+    '^.+\\.[tj]sx?$': ['ts-jest', { 
       tsconfig: 'tsconfig.app.json',
       diagnostics: false,
       isolatedModules: true

@@ -31,3 +31,20 @@ class IntersectionObserver {
   disconnect() {}
 }
 (window as any).IntersectionObserver = IntersectionObserver;
+
+// Mock THREE.WebGLRenderer for test environments
+jest.mock('three', () => {
+  const THREE = jest.requireActual('three');
+  return {
+    ...THREE,
+    WebGLRenderer: jest.fn().mockImplementation(() => ({
+      setSize: jest.fn(),
+      setPixelRatio: jest.fn(),
+      render: jest.fn(),
+      dispose: jest.fn(),
+      setClearColor: jest.fn(),
+      forceContextLoss: jest.fn(),
+      domElement: document.createElement('canvas'),
+    })),
+  };
+});
