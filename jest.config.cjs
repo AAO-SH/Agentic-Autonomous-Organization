@@ -5,6 +5,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     '\\.(gif|ttf|eot|svg|png|jpg|jpeg)$': '<rootDir>/__mocks__/fileMock.cjs',
+    '^ogl$': '<rootDir>/__mocks__/oglMock.cjs',
   },
   transform: {
     '^.+\\.[tj]sx?$': ['ts-jest', { 

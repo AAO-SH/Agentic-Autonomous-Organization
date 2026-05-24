@@ -1,14 +1,14 @@
 import '@testing-library/jest-dom';
 
-// Mocks para o window/document para evitar erros do Framer Motion e observers
+// Mocks para o window/document
 Object.defineProperty(window as any, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation(query => ({
     matches: false,
     media: query,
     onchange: null,
-    addListener: jest.fn(), // Deprecated
-    removeListener: jest.fn(), // Deprecated
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
     addEventListener: jest.fn(),
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn(),
@@ -25,26 +25,20 @@ class ResizeObserver {
 
 // Mock IntersectionObserver
 class IntersectionObserver {
-  constructor(callback: any) {}
+  constructor(_callback: any) {}
   observe() {}
   unobserve() {}
   disconnect() {}
 }
 (window as any).IntersectionObserver = IntersectionObserver;
 
-// Mock THREE.WebGLRenderer for test environments
-jest.mock('three', () => {
-  const THREE = jest.requireActual('three');
-  return {
-    ...THREE,
-    WebGLRenderer: jest.fn().mockImplementation(() => ({
-      setSize: jest.fn(),
-      setPixelRatio: jest.fn(),
-      render: jest.fn(),
-      dispose: jest.fn(),
-      setClearColor: jest.fn(),
-      forceContextLoss: jest.fn(),
-      domElement: document.createElement('canvas'),
-    })),
-  };
+// Mock canvas/WebGL para o DotField e AnimatedBackground
+HTMLCanvasElement.prototype.getContext = jest.fn().mockReturnValue({
+  clearRect: jest.fn(),
+  fillRect: jest.fn(),
+  beginPath: jest.fn(),
+  arc: jest.fn(),
+  fill: jest.fn(),
+  scale: jest.fn(),
+  fillStyle: '',
 });
