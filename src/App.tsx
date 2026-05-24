@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import AnimatedBackground from './components/AnimatedBackground';
 import HeroSection from './components/sections/HeroSection';
 import HowItWorksSection from './components/sections/HowItWorksSection';
