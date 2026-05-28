@@ -13,7 +13,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --tab-width: 80px;
 }
+
+@media (min-width: 640px) { :root { --tab-width: 128px; } }
+@media (min-width: 2000px) { :root { --tab-width: 200px; } }
+@media (min-width: 3840px) { :root { --tab-width: 280px; } }
 
 body {
   margin: 0;

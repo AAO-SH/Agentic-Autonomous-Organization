@@ -40,7 +40,7 @@ function App() {
 
   if (!isUnlocked) {
     return (
-      <div className="w-screen h-screen bg-black text-white flex items-center justify-center text-4xl tracking-[0.2em] font-light uppercase select-none">
+      <div className="w-screen h-screen bg-black text-white flex items-center justify-center text-3xl sm:text-4xl min-[2000px]:text-7xl min-[3840px]:text-[8rem] tracking-[0.2em] font-light uppercase select-none">
         <span>C</span>
         <span onClick={() => setIsUnlocked(true)} className="cursor-pointer hover:text-white/80 transition-colors duration-300">O</span>
         <span>M</span>
@@ -77,8 +77,8 @@ function App() {
           <div 
             className="absolute top-[6px] bottom-[6px] rounded-full bg-white/10 border border-white/20 shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),0_4px_15px_rgba(255,255,255,0.1)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
             style={{ 
-              width: '128px',
-              left: `${6 + activeTab * 128}px`
+              width: 'var(--tab-width)',
+              left: `calc(6px + ${activeTab} * var(--tab-width))`
             }}
           />
 
@@ -86,7 +86,7 @@ function App() {
             <button
               key={tab}
               onClick={() => changeTab(idx)}
-              className={`relative z-10 w-32 py-2 text-sm font-medium transition-colors duration-300 ${
+              className={`relative z-10 w-[var(--tab-width)] py-2 min-[2000px]:py-4 min-[3840px]:py-6 text-xs sm:text-sm min-[2000px]:text-xl min-[3840px]:text-3xl font-medium transition-colors duration-300 ${
                 activeTab === idx ? 'text-white drop-shadow-md' : 'text-slate-400 hover:text-white'
               }`}
             >
