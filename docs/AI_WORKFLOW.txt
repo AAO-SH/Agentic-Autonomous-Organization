@@ -20,7 +20,7 @@ The project uses the scheme: vX.Y.Z
   Y = MINOR  → New features, new components (e.g., v2.1.0)
   Z = PATCH  → Bug fixes, CSS adjustments, warnings, typos (e.g., v2.0.1)
 
-CURRENT VERSION: v2.0.7 (defined in instrucoes.txt)
+CURRENT VERSION: v2.0.8 (defined in instrucoes.txt)
 
 INCREMENT RULES:
   - Fixed a CSS warning?                     → PATCH  (+0.0.1)
