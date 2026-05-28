@@ -17,9 +17,25 @@
   --tab-width: 80px;
 }
 
-@media (min-width: 640px) { :root { --tab-width: 128px; } }
-@media (min-width: 2000px) { :root { --tab-width: 200px; } }
+html {
+  font-size: clamp(0.9rem, 0.95rem + 0.06vw, 1.12rem);
+}
+
+/* Standard 16:9 resolutions */
+@media (min-width: 1280px) { :root { --tab-width: 140px; } }
+@media (min-width: 1920px) { :root { --tab-width: 180px; } }
+@media (min-width: 2560px) { :root { --tab-width: 220px; } }
 @media (min-width: 3840px) { :root { --tab-width: 280px; } }
+
+/* Notebooks and monitors */
+@media (min-width: 1366px) { html { font-size: 1rem; } }
+@media (min-width: 1920px) and (min-height: 1200px) { html { font-size: 1.02rem; } }
+@media (min-width: 2560px) and (min-height: 1440px) { html { font-size: 1.06rem; } }
+@media (min-width: 2560px) and (min-height: 1664px) { html { font-size: 1.08rem; } }
+
+/* Ultrawide 21:9 resolutions */
+@media (min-width: 2560px) and (min-aspect-ratio: 21/9) { :root { --tab-width: 230px; } }
+@media (min-width: 3440px) and (min-aspect-ratio: 21/9) { :root { --tab-width: 245px; } }
 
 body {
   margin: 0;
