@@ -1,50 +1,50 @@
 # Agentic Autonomous Organization (Frontend)
 
-Bem-vindo ao repositório **Agentic Autonomous Organization**. Este projeto open source atua como uma interface para explicar e administrar múltiplos trabalhos e repositórios automatizados por Agentes de Inteligência Artificial fornecidos pela base de código.
+Welcome to the **Agentic Autonomous Organization** repository. This open source project acts as an interface to explain and manage multiple jobs and repositories automated by Artificial Intelligence Agents provided by the codebase.
 
-## 🎨 Design e Interface
+## 🎨 Design and Interface
 
-O front-end foi construído com um design minimalista, focado na estética "Dark Mode" característica das ferramentas de Inteligência Artificial mais avançadas do mercado. As cores, os contrastes e as animações suaves ("glassmorphism", gradientes vítreos da Aurora) foram escolhidos para passar uma sensação de modernidade e sofisticação premium.
+The front-end was built with a minimalist design, focused on the "Dark Mode" aesthetics characteristic of the most advanced Artificial Intelligence tools on the market. The colors, contrasts, and smooth animations ("glassmorphism", Aurora vitreous gradients) were chosen to convey a sense of modernity and premium sophistication.
 
-A navegação ocorre através de uma SPA (Single Page Application) em formato de **Apresentação de Slides Horizontais**, garantindo foco na retenção do usuário.
+Navigation occurs through an SPA (Single Page Application) in the format of **Horizontal Slides Presentation**, ensuring focus on user retention.
 
-### Tecnologias Utilizadas
-- **React 19**: Biblioteca principal para a construção da interface do usuário.
-- **Vite**: Ferramenta de build super rápida e otimizada.
-- **TypeScript**: Superset de JavaScript que adiciona tipagem estática.
-- **Tailwind CSS**: Framework utilitário usado para estruturação e layout rápido.
-- **CSS Nativo**: Para renderização extrema e manipulação de animações de fundo complexas (Aurora e DotField) garantindo máxima performance (PageSpeed 100/100).
+### Technologies Used
+- **React 19**: Main library for building the user interface.
+- **Vite**: Super fast and optimized build tool.
+- **TypeScript**: JavaScript superset that adds static typing.
+- **Tailwind CSS**: Utility-first framework used for rapid layout structure.
+- **Native CSS**: For extreme rendering and manipulation of complex background animations (Aurora and DotField) ensuring maximum performance (PageSpeed 100/100).
 
-## 🚀 Como Executar o Projeto Localmente
+## 🚀 How to Run the Project Locally
 
-1. Certifique-se de ter o **Node.js** instalado na sua máquina.
-2. Clone o repositório ou navegue até a pasta raiz do projeto.
-3. Instale as dependências:
+1. Ensure you have **Node.js** installed on your machine.
+2. Clone the repository or navigate to the project root folder.
+3. Install dependencies:
    ```bash
    npm install
    ```
-4. Inicie o servidor de desenvolvimento:
+4. Start the development server:
    ```bash
    npm run dev
    ```
-5. Acesse a URL gerada no terminal (geralmente `http://localhost:5173/`).
+5. Access the generated URL in the terminal (usually `http://localhost:5173/`).
 
-## 🚀 Padrão de Versionamento
+## 🚀 Versioning Standard
 
-O controle de versão deste projeto segue o Semantic Versioning (vX.Y.Z). 
+The version control of this project follows Semantic Versioning (vX.Y.Z).
 
-- `v1.0` - Versão inicial / Lançamento.
+- `v1.0` - Initial version / Release.
 - (...)
-- `v1.10.1` - Atualização autônoma: Modificações gerais detectadas em configurações, pacotes e testes de CI/CD.
-- `v2.0.0` - **Reescrita Total de Arquitetura (Major Update)**: 
-  - Mudança do layout "Bento Grid" para SPA de Slides Horizontais.
-  - Implementação do Tailwind CSS.
-  - Substituição do `framer-motion` por animações Nativas CSS para otimização extrema.
-  - Inclusão do Menu Nav estilo Liquid Glass Apple Premium.
-  - Dead Code Elimination e otimização `React.memo` para atingir nota máxima no Google PageSpeed Insights.
-- **`v2.0.3` (ATUAL)** - Adição da nova seção "Ecossistema Integrado", máscara de segurança "Em Breve" (Easter Egg) e nova navegação guiada por botões Liquid Glass.
+- `v1.10.1` - Autonomous update: General modifications detected in configs, packages, and CI/CD tests.
+- `v2.0.0` - **Total Architecture Rewrite (Major Update)**: 
+  - Change from "Bento Grid" layout to Horizontal Slides SPA.
+  - Tailwind CSS implementation.
+  - Replacement of `framer-motion` with Native CSS animations for extreme optimization.
+  - Inclusion of Liquid Glass Apple Premium style Nav Menu.
+  - Dead Code Elimination and `React.memo` optimization to achieve maximum score on Google PageSpeed Insights.
+- `v2.0.3` - Addition of the new "Integrated Ecosystem" section, "Coming Soon" security mask (Easter Egg), and new navigation guided by Liquid Glass buttons.
+- **`v2.1.0` (CURRENT)** - Complete localization to English, comprehensive ultra-wide 8K resolution support, and enhanced mobile responsive layout.
 
-> **Nota para futuros contribuidores**: O projeto abandonou a arquitetura antiga de rolagem vertical pesada em favor de máxima velocidade. Respeitem o protocolo do `React.memo` ao adicionar novos componentes de renderização intensiva.
+> **Note for future contributors**: The project abandoned the old heavy vertical scrolling architecture in favor of maximum speed. Respect the `React.memo` protocol when adding new rendering-intensive components.
 
-Ao realizar qualquer atualização importante no projeto, lembre-se de registrar a evolução do versionamento no histórico de commits e eventuais changelogs!
-
+When making any major update to the project, remember to register the versioning evolution in the commit history and potential changelogs!

@@ -3,37 +3,37 @@ import React, { useState } from 'react';
 const MODULES = [
   {
     id: 1,
-    name: 'Módulo 1',
-    short: 'Componente autonômo operando em sandbox.',
-    title: 'Sandbox de Execução',
-    text: 'Os agentes executam códigos gerados dentro de um ambiente isolado (sandbox), garantindo que nenhuma vulnerabilidade afete a infraestrutura principal do sistema.',
+    name: 'Module 1',
+    short: 'Autonomous component operating in sandbox.',
+    title: 'Execution Sandbox',
+    text: 'Agents execute generated codes within an isolated environment (sandbox), ensuring that no vulnerability affects the main infrastructure of the system.',
     gradient: 'from-blue-500 via-purple-500 to-pink-500',
     icon: '1'
   },
   {
     id: 2,
-    name: 'Módulo 2',
-    short: 'Orquestração de múltiplos modelos LLM.',
-    title: 'Roteamento de Modelos',
-    text: 'O sistema seleciona dinamicamente qual IA utilizar (GPT-4, Claude, Gemini) com base na complexidade do problema, velocidade necessária e custo da operação.',
+    name: 'Module 2',
+    short: 'Orchestration of multiple LLM models.',
+    title: 'Model Routing',
+    text: 'The system dynamically selects which AI to use (GPT-4, Claude, Gemini) based on the complexity of the problem, required speed, and operation cost.',
     gradient: 'from-emerald-400 via-teal-500 to-cyan-500',
     icon: '2'
   },
   {
     id: 3,
-    name: 'Módulo 3',
-    short: 'Memória vetorial e contexto histórico.',
-    title: 'Memória Contínua',
-    text: 'Agentes acessam um banco de dados vetorial para recuperar contextos de conversas passadas e documentações, permitindo aprendizado infinito para a organização.',
+    name: 'Module 3',
+    short: 'Vector memory and historical context.',
+    title: 'Continuous Memory',
+    text: 'Agents access a vector database to retrieve contexts from past conversations and documentation, allowing infinite learning for the organization.',
     gradient: 'from-orange-400 via-red-500 to-rose-500',
     icon: '3'
   },
   {
     id: 4,
-    name: 'Módulo 4',
-    short: 'Automação de CI/CD e Code Review.',
-    title: 'Code Review Autônomo',
-    text: 'A IA revisa Pull Requests, roda pipelines de teste e realiza merge de forma completamente autônoma, garantindo qualidade de software sem gargalos humanos.',
+    name: 'Module 4',
+    short: 'CI/CD and Code Review automation.',
+    title: 'Autonomous Code Review',
+    text: 'AI reviews Pull Requests, runs test pipelines, and merges completely autonomously, ensuring software quality without human bottlenecks.',
     gradient: 'from-indigo-500 via-violet-500 to-purple-500',
     icon: '4'
   }
@@ -53,10 +53,10 @@ const HowItWorksSection = React.memo(({ animationClass, onNext }: { animationCla
           {/* Default Content */}
           <div className={`absolute inset-0 p-8 md:p-12 flex flex-col justify-between transition-opacity duration-500 ${activeIndex === null ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
             <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight">
-              Arquitetura<br className="hidden md:block"/> de Agentes
+              Agent<br className="hidden md:block"/> Architecture
             </h2>
             <p className="text-slate-400 text-lg md:text-xl font-light">
-              Nossos módulos trabalham de forma colaborativa e autônoma, escalando a capacidade do seu time. Clique nos módulos ao lado para explorar.
+              Our modules work collaboratively and autonomously, scaling the capacity of your team. Click on the modules aside to explore.
             </p>
           </div>
 
@@ -76,7 +76,7 @@ const HowItWorksSection = React.memo(({ animationClass, onNext }: { animationCla
           {/* Card Superior com Gradiente Dinâmico */}
           <div className={`p-6 md:p-8 rounded-[2rem] bg-gradient-to-br shadow-xl min-h-[120px] md:min-h-[140px] flex flex-col justify-end transition-all duration-700 ease-in-out ${activeModule ? activeModule.gradient : 'from-slate-700 via-slate-800 to-slate-900'}`}>
             <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight tracking-tight transition-all duration-300">
-              {activeModule ? activeModule.name : 'Selecione um Módulo'}
+              {activeModule ? activeModule.name : 'Select a Module'}
             </h3>
           </div>
 
@@ -117,7 +117,7 @@ const HowItWorksSection = React.memo(({ animationClass, onNext }: { animationCla
             onClick={onNext}
             className="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-300 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full hover:bg-white/10 hover:scale-105 shadow-[0_8px_32px_0_rgba(0,0,0,0.6)] hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]"
           >
-            Continuar
+            Continue
           </button>
         </div>
       )}

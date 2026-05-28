@@ -11,7 +11,7 @@ const HeroSection = React.memo(({ animationClass, onNext }: { animationClass: st
 
         {/* Subtitulo / Contexto IA */}
         <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light mb-16 leading-relaxed">
-          Uma base open source focada em orquestração de <strong className="text-white font-medium">Agentes Autônomos de IA</strong>. Desbloqueie o poder do desenvolvimento distribuído.
+          An open source foundation focused on the orchestration of <strong className="text-white font-medium">Autonomous AI Agents</strong>. Unlock the power of distributed development.
         </p>
 
         {/* Action Button */}
@@ -20,7 +20,7 @@ const HeroSection = React.memo(({ animationClass, onNext }: { animationClass: st
             onClick={onNext}
             className="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-300 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full hover:bg-white/10 hover:scale-105 shadow-[0_8px_32px_0_rgba(0,0,0,0.6)] hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] mt-4"
           >
-            Iniciar
+            Start
           </button>
         )}
       </div>

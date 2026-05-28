@@ -7,7 +7,7 @@ import RepoSection from './components/sections/RepoSection';
 import './index.css';
 import './components/Navbar.css';
 
-const TABS = ['Apresentação', 'Como Funciona', 'Ecossistema', 'Repositório'];
+const TABS = ['Presentation', 'How It Works', 'Ecosystem', 'Repository'];
 
 function App() {
   const [isUnlocked, setIsUnlocked] = useState(false);
@@ -41,10 +41,11 @@ function App() {
   if (!isUnlocked) {
     return (
       <div className="w-screen h-screen bg-black text-white flex items-center justify-center text-4xl tracking-[0.2em] font-light uppercase select-none">
-        <span>Em Br</span>
-        <span onClick={() => setIsUnlocked(true)} className="cursor-pointer hover:text-white/80 transition-colors duration-300">E</span>
-        <span>v</span>
-        <span onClick={() => setIsUnlocked(true)} className="cursor-pointer hover:text-white/80 transition-colors duration-300">E</span>
+        <span>C</span>
+        <span onClick={() => setIsUnlocked(true)} className="cursor-pointer hover:text-white/80 transition-colors duration-300">O</span>
+        <span>M</span>
+        <span onClick={() => setIsUnlocked(true)} className="cursor-pointer hover:text-white/80 transition-colors duration-300">I</span>
+        <span>NG SOON</span>
       </div>
     );
   }

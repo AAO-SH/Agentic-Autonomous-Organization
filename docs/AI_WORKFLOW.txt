@@ -1,134 +1,133 @@
 ========================================================
- AI_WORKFLOW.txt — Protocolo Obrigatório para Agentes IA
- Projeto: Agentic Autonomous Organization (AAO)
- Repositório: github.com/joao/Agentic-Autonomous-Organization
+ AI_WORKFLOW.txt — Mandatory Protocol for AI Agents
+ Project: Agentic Autonomous Organization (AAO)
+ Repository: github.com/joao/Agentic-Autonomous-Organization
 ========================================================
 
-LEIA ESTE ARQUIVO ANTES DE QUALQUER AÇÃO NO REPOSITÓRIO.
+READ THIS FILE BEFORE ANY ACTION IN THE REPOSITORY.
 
-Este documento define o protocolo que TODO agente de IA (LLM, Copilot, etc.)
-deve seguir ao interagir com este repositório. O não cumprimento pode gerar
-versões inconsistentes, histórico de commits sujo e falha no CI/CD.
-
---------------------------------------------------------
- SEÇÃO 1 — PADRÃO DE VERSIONAMENTO (Semantic Versioning)
---------------------------------------------------------
-
-O projeto usa o esquema: vX.Y.Z
-
-  X = MAJOR  → Grandes reestruturações, mudanças de arquitetura (ex: v2.0.0)
-  Y = MINOR  → Novas features, novos componentes (ex: v2.1.0)
-  Z = PATCH  → Correções de bugs, ajustes de CSS, warnings, typos (ex: v2.0.1)
-
-VERSÃO ATUAL: v2.0.3  (definida no instrucoes.txt)
-
-REGRAS DE INCREMENTO:
-  - Corrigi um warning de CSS?               → PATCH  (+0.0.1)
-  - Adicionei um novo componente/seção?      → MINOR  (+0.1.0)
-  - Refatorei a arquitetura do projeto?      → MAJOR  (+1.0.0)
-
-NUNCA pule versões. Sempre leia a versão atual no instrucoes.txt antes de
-definir o próximo número.
+This document defines the protocol that EVERY AI agent (LLM, Copilot, etc.)
+must follow when interacting with this repository. Failure to comply may generate
+inconsistent versions, dirty commit history, and CI/CD failure.
 
 --------------------------------------------------------
- SEÇÃO 2 — PROTOCOLO DE ATUALIZAÇÃO (Passo a Passo)
+ SECTION 1 — VERSIONING STANDARD (Semantic Versioning)
 --------------------------------------------------------
 
-Após QUALQUER alteração nos arquivos do projeto, execute OBRIGATORIAMENTE
-os passos abaixo, NA ORDEM INDICADA:
+The project uses the scheme: vX.Y.Z
 
-PASSO 1 — Determinar o tipo de mudança e a nova versão
-  → Classifique a mudança: PATCH / MINOR / MAJOR
-  → Calcule o novo número de versão com base na versão atual do instrucoes.txt
+  X = MAJOR  → Large restructurings, architecture changes (e.g., v2.0.0)
+  Y = MINOR  → New features, new components (e.g., v2.1.0)
+  Z = PATCH  → Bug fixes, CSS adjustments, warnings, typos (e.g., v2.0.1)
 
-PASSO 2 — Atualizar a documentação
-  a) Editar `instrucoes.txt`:
-     - Altere "Versão atual: vX.Y.Z" para o novo número
-     - Se for MINOR ou MAJOR, atualize "Próxima feature nova" e "Grandes reestruturações"
+CURRENT VERSION: v2.0.7 (defined in instrucoes.txt)
 
-  b) Editar `README.md`:
-     - Atualize o badge ou menção de versão no topo do arquivo (se existir)
-     - Adicione entrada no changelog interno (se existir seção)
+INCREMENT RULES:
+  - Fixed a CSS warning?                     → PATCH  (+0.0.1)
+  - Added a new component/section?           → MINOR  (+0.1.0)
+  - Refactored project architecture?         → MAJOR  (+1.0.0)
 
-PASSO 3 — Executar git add (incluir todos os arquivos modificados)
-  Comando: git add .
-  OU para ser mais preciso: git add <arquivo1> <arquivo2> ...
+NEVER skip versions. Always read the current version in instrucoes.txt before
+defining the next number.
 
-PASSO 4 — Executar git commit com mensagem padronizada
-  Formato obrigatório da mensagem de commit:
-    [TIPO] vX.Y.Z — Descrição concisa da mudança
+--------------------------------------------------------
+ SECTION 2 — UPDATE PROTOCOL (Step by Step)
+--------------------------------------------------------
 
-  Tipos aceitos:
-    fix      → Correção de bug ou warning
-    feat     → Nova funcionalidade
-    refactor → Refatoração sem mudança de comportamento
-    style    → Mudança visual, CSS, animações
-    docs     → Atualização de documentação apenas
-    test     → Adição/atualização de testes
-    ci       → Mudança em CI/CD (GitHub Actions, deploy.yml)
-    chore    → Tarefas de manutenção (atualização de deps, etc.)
+After ANY change in the project files, you MUST execute
+the steps below, IN THE INDICATED ORDER:
 
-  Exemplos:
+STEP 1 — Determine the type of change and the new version
+  → Classify the change: PATCH / MINOR / MAJOR
+  → Calculate the new version number based on the current version of instrucoes.txt
+
+STEP 2 — Update the documentation
+  a) Edit `instrucoes.txt`:
+     - Change "Current version: vX.Y.Z" to the new number
+     - If MINOR or MAJOR, update "Next new feature" and "Major restructurings"
+
+  b) Edit `README.md`:
+     - Update the badge or version mention at the top of the file (if it exists)
+     - Add an entry in the internal changelog (if the section exists)
+
+STEP 3 — Execute git add (include all modified files)
+  Command: git add .
+  OR to be more precise: git add <file1> <file2> ...
+
+STEP 4 — Execute git commit with standard message
+  Mandatory commit message format:
+    [TYPE] vX.Y.Z — Concise description of the change
+
+  Accepted types:
+    fix      → Bug or warning fix
+    feat     → New feature
+    refactor → Refactoring without behavior change
+    style    → Visual change, CSS, animations
+    docs     → Documentation update only
+    test     → Adding/updating tests
+    ci       → Change in CI/CD (GitHub Actions, deploy.yml)
+    chore    → Maintenance tasks (deps update, etc.)
+
+  Examples:
     git commit -m "style v2.0.1 — Adjust Aurora background wave animation"
     git commit -m "feat v2.1.0 — Add new internal agents dashboard section"
 
-PASSO 5 — Executar git push
-  Comando: git push origin main
-  (O CI/CD do GitHub Actions fará o deploy automático para o GitHub Pages)
+STEP 5 — Execute git push
+  Command: git push origin main
+  (GitHub Actions CI/CD will automatically deploy to GitHub Pages)
 
 --------------------------------------------------------
- SEÇÃO 3 — VERIFICAÇÕES PÓS-PUSH
+ SECTION 3 — POST-PUSH VERIFICATIONS
 --------------------------------------------------------
 
-Após o push, confirme:
-  1. O GitHub Actions executou com sucesso (sem erros no deploy.yml)
-  2. Os testes Jest passaram (npm run test)
-  3. O build de produção compila sem erros (npm run build)
+After push, confirm:
+  1. GitHub Actions executed successfully (no errors in deploy.yml)
+  2. Jest tests passed (npm run test)
+  3. Production build compiles without errors (npm run build)
 
-Se qualquer etapa falhar:
-  - Analise o erro ANTES de tentar corrigir
-  - Faça uma nova correção e repita o protocolo do PASSO 1 ao PASSO 5
-  - NÃO force push (git push --force) sem aprovação explícita do mantenedor
+If any step fails:
+  - Analyze the error BEFORE trying to fix
+  - Make a new fix and repeat the protocol from STEP 1 to STEP 5
+  - DO NOT force push (git push --force) without explicit maintainer approval
 
 --------------------------------------------------------
- SEÇÃO 4 — REGRAS GERAIS DO PROJETO
+ SECTION 4 — GENERAL PROJECT RULES
 --------------------------------------------------------
 
-STACK TECNOLÓGICA:
+TECHNOLOGICAL STACK:
   - Framework:  Vite + React 19 + TypeScript
-  - Estilo:     Tailwind CSS + CSS Nativo Avançado
-  - Animações:  CSS Nativo exclusivo (Sem Framer Motion, performance extrema)
-  - Layout:     SPA com Transições em Slides Horizontais via State puro e Scroll Mouse Event
-  - Deploy:     GitHub Actions → GitHub Pages (domínio: aao.sh)
+  - Style:      Tailwind CSS + Advanced Native CSS
+  - Animations: Exclusive Native CSS (No Framer Motion, extreme performance)
+  - Layout:     SPA with Horizontal Slides Transitions via pure State and Scroll Mouse Event
+  - Deploy:     GitHub Actions → GitHub Pages (domain: aao.sh)
 
-PALETA DE CORES (NUNCA ALTERAR SEM APROVAÇÃO):
-  - Foco Exclusivo em Dark Mode (Pretos absolutos e Liquid Glass)
+COLOR PALETTE (NEVER CHANGE WITHOUT APPROVAL):
+  - Exclusive Focus on Dark Mode (Absolute blacks and Liquid Glass)
 
-ESTRUTURA PROIBIDA DE ALTERAR:
-  - A lógica de transição horizontal de SPA no `App.tsx`
-  - A otimização `React.memo` dos componentes gráficos (`DotField`, `Aurora`, Sections)
+STRUCTURE FORBIDDEN TO CHANGE:
+  - The horizontal SPA transition logic in `App.tsx`
+  - The `React.memo` optimization of graphical components (`DotField`, `Aurora`, Sections)
 
-ESTRUTURA PERMITIDA DE EXPANDIR:
-  - Novas abas de navegação no `TABS` array
-  - Inserção de conteúdo dentro das Sections (`Hero`, `HowItWorks`, `Repo`)
-  - Personalização fina da Aurora no `index.css`
+STRUCTURE ALLOWED TO EXPAND:
+  - New navigation tabs in the `TABS` array
+  - Content insertion within Sections (`Hero`, `HowItWorks`, `Repo`)
+  - Fine customization of Aurora in `index.css`
 
 --------------------------------------------------------
- SEÇÃO 5 — EXEMPLO COMPLETO DE EXECUÇÃO
+ SECTION 5 — COMPLETE EXECUTION EXAMPLE
 --------------------------------------------------------
 
-Cenário: Você ajustou a opacidade da Aurora no index.css.
+Scenario: You adjusted Aurora opacity in index.css.
 
-  1. Tipo: PATCH → nova versão: v2.0.1
-  2. Atualize instrucoes.txt: "Versão atual: v2.0.1"
+  1. Type: PATCH → new version: v2.0.1
+  2. Update instrucoes.txt: "Current version: v2.0.1"
   3. git add src/index.css docs/instrucoes.txt
   4. git commit -m "style v2.0.1 — Update Aurora opacity for better contrast"
   5. git push origin main
-  6. Verifique: Actions passou? Testes passaram? Build OK?
+  6. Verify: Actions passed? Tests passed? Build OK?
 
 --------------------------------------------------------
- FIM DO DOCUMENTO
- Última atualização: 2026-05-24
- Responsável: Joao Alves / Agente IA (Antigravity)
+ END OF DOCUMENT
+ Last update: 2026-05-28
+ Responsible: Joao Alves / AI Agent (Antigravity)
 ========================================================
-

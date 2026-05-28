@@ -1,31 +1,31 @@
-Documento de Instruções: Agentic Autonomous Organization (AAO)
+Instructions Document: Agentic Autonomous Organization (AAO)
 ============================================================
 
-Este documento serve como guia de base tanto para DESENVOLVEDORES HUMANOS quanto para AGENTES DE INTELIGÊNCIA ARTIFICIAL que interagirem com este repositório.
+This document serves as a base guide for both HUMAN DEVELOPERS and ARTIFICIAL INTELLIGENCE AGENTS interacting with this repository.
 
-1. OBJETIVO DO REPOSITÓRIO
-Este repositório front-end é a face pública do ecossistema Agentic Autonomous Organization (AAO). Ele é responsável por explicar e expor as métricas e capacidades dos nossos agentes autônomos. 
-O projeto foca em delegar fluxos de trabalho (Code Review, Automação de PRs, Dependências) para modelos de IA como GPT, Claude e Gemini.
+1. REPOSITORY OBJECTIVE
+This front-end repository is the public face of the Agentic Autonomous Organization (AAO) ecosystem. It is responsible for explaining and exposing the metrics and capabilities of our autonomous agents. 
+The project focuses on delegating workflows (Code Review, PR Automation, Dependencies) to AI models like GPT, Claude, and Gemini.
 
-2. INSTRUÇÕES PARA AGENTES DE IA (LLMs, Copilots, etc)
-- A paleta de cores deve ser estritamente mantida: Minimalista Dark Mode (Preto puro absoluto) com acentos vítreos. NUNCA mude para temas claros.
-- Estilização: Utilizar **Tailwind CSS** para classes utilitárias, complementado com CSS puro (`index.css` e `Navbar.css`) apenas para efeitos avançados de Liquid Glass e animações.
-- Animações: NUNCA utilizar bibliotecas pesadas como framer-motion ou react-spring. O projeto preza pela performance 100/100 no PageSpeed usando exclusivamente transições CSS Nativas ultra-otimizadas.
-- O Layout segue um modelo de "Apresentação em Slides Horizontais", gerenciado via React state puro (`App.tsx`) ativado por eventos nativos de `wheel` do mouse.
-- Sempre incremente a versão usando a nomenclatura "vX.Y.Z" (Semantic Versioning) no instrucoes.txt, README e nas mensagens de commit.
-- OBRIGATÓRIO: Leia e siga o arquivo `docs/AI_WORKFLOW.txt` antes de qualquer alteração. Ele define o protocolo completo de versionamento e regras arquiteturais.
+2. INSTRUCTIONS FOR AI AGENTS (LLMs, Copilots, etc)
+- The color palette must be strictly maintained: Minimalist Dark Mode (Absolute pure black) with vitreous accents. NEVER change to light themes.
+- Styling: Use **Tailwind CSS** for utility classes, complemented with pure CSS (`index.css` and `Navbar.css`) only for advanced Liquid Glass effects and animations.
+- Animations: NEVER use heavy libraries like framer-motion or react-spring. The project values 100/100 performance on PageSpeed using exclusively ultra-optimized Native CSS transitions.
+- The Layout follows a "Horizontal Slides Presentation" model, managed via pure React state (`App.tsx`) activated by native mouse `wheel` events.
+- Always increment the version using the "vX.Y.Z" (Semantic Versioning) nomenclature in instrucoes.txt, README, and commit messages.
+- MANDATORY: Read and follow the `docs/AI_WORKFLOW.txt` file before any changes. It defines the complete versioning protocol and architectural rules.
 
-3. INSTRUÇÕES PARA DESENVOLVEDORES HUMANOS
-- Ambiente: Vite + React + TypeScript + Tailwind CSS.
-- Execução local: `npm install` seguido de `npm run dev`.
-- Arquitetura de Performance: Toda renderização pesada (Aurora e DotField) está protegida por `React.memo` para evitar recálculos durante a navegação. O bundle principal foi otimizado para possuir < 65KB.
-- As configurações de CI/CD para o GitHub Pages estão no `.github/workflows/deploy.yml`. O roteamento (base url) no `vite.config.ts` está configurado para o root `/`.
+3. INSTRUCTIONS FOR HUMAN DEVELOPERS
+- Environment: Vite + React + TypeScript + Tailwind CSS.
+- Local execution: `npm install` followed by `npm run dev`.
+- Performance Architecture: All heavy rendering (Aurora and DotField) is protected by `React.memo` to prevent recalculations during navigation. The main bundle was optimized to be < 65KB.
+- CI/CD settings for GitHub Pages are in `.github/workflows/deploy.yml`. Routing (base url) in `vite.config.ts` is configured for the root `/`.
 
-4. PADRÃO DE VERSIONAMENTO ATUAL
-- Versão atual: v2.0.3
-- Próxima feature nova: v2.1.0
-- Grandes reestruturações: v3.0.0
+4. CURRENT VERSIONING STANDARD
+- Current version: v2.0.7
+- Next new feature: v2.1.0
+- Major restructurings: v3.0.0
 
-5. PROTOCOLO DE WORKFLOW PARA AGENTES IA
-- O arquivo `docs/AI_WORKFLOW.txt` contém o protocolo completo.
-- Todo agente de IA DEVE lê-lo antes de iniciar qualquer sessão de trabalho.
+5. WORKFLOW PROTOCOL FOR AI AGENTS
+- The file `docs/AI_WORKFLOW.txt` contains the complete protocol.
+- Every AI agent MUST read it before starting any work session.
