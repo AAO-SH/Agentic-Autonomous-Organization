@@ -40,7 +40,7 @@ const MODULES = [
 ];
 
 const HowItWorksSection = React.memo(({ animationClass, onNext }: { animationClass: string, onNext?: () => void }) => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const activeModule = activeIndex !== null ? MODULES[activeIndex] : null;
 
@@ -61,14 +61,19 @@ const HowItWorksSection = React.memo(({ animationClass, onNext }: { animationCla
           </div>
 
           {/* Dynamic Content */}
-          <div className={`absolute inset-0 p-8 md:p-12 min-[2000px]:p-20 min-[3840px]:p-32 flex flex-col justify-between transition-opacity duration-500 ${activeIndex !== null ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-            <h2 className="text-4xl md:text-5xl min-[2000px]:text-6xl min-[3840px]:text-[7rem] font-bold text-white tracking-tight leading-tight">
-              {activeModule?.title}
-            </h2>
-            <p className="text-slate-300 text-lg md:text-xl min-[2000px]:text-3xl min-[3840px]:text-5xl font-light leading-relaxed">
-              {activeModule?.text}
-            </p>
-          </div>
+          {activeIndex !== null && (
+            <div 
+              key={activeIndex}
+              className="absolute inset-0 p-8 md:p-12 min-[2000px]:p-20 min-[3840px]:p-32 flex flex-col justify-between slide-in-right"
+            >
+              <h2 className="text-4xl md:text-5xl min-[2000px]:text-6xl min-[3840px]:text-[7rem] font-bold text-white tracking-tight leading-tight">
+                {activeModule?.title}
+              </h2>
+              <p className="text-slate-300 text-lg md:text-xl min-[2000px]:text-3xl min-[3840px]:text-5xl font-light leading-relaxed">
+                {activeModule?.text}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Direita: Modulos */}

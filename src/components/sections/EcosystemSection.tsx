@@ -14,7 +14,7 @@ const EcosystemSection = React.memo(({ animationClass, onNext }: EcosystemSectio
           Integrated Ecosystem
         </h2>
         
-        <p className="text-slate-400 text-lg md:text-xl min-[2000px]:text-3xl min-[3840px]:text-5xl font-light mb-12 max-w-2xl min-[2000px]:max-w-5xl min-[3840px]:max-w-[100rem]">
+        <p className="text-slate-400 text-lg md:text-xl min-[2000px]:text-3xl min-[3840px]:text-5xl font-light mb-24 min-[2000px]:mb-32 min-[3840px]:mb-48 max-w-2xl min-[2000px]:max-w-5xl min-[3840px]:max-w-[100rem]">
           Our agent network does not act in isolation. They form a complete and intelligent ecosystem capable of managing all phases of the software lifecycle.
         </p>
 
