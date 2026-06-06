@@ -68,7 +68,7 @@ function App() {
   };
 
   return (
-    <div className="w-screen h-screen overflow-hidden bg-slate-950 flex flex-col text-white font-sans selection:bg-blue-500/30">
+    <div className="w-screen h-[100dvh] overflow-hidden bg-slate-950 flex flex-col text-white font-sans selection:bg-blue-500/30">
       <AnimatedBackground />
 
       <header className="absolute top-0 left-0 right-0 pt-8 pb-4 flex justify-center items-center z-50 pointer-events-none">
@@ -97,7 +97,13 @@ function App() {
       </header>
 
       {/* Main Content Area */}
-      <main className="relative z-10 w-full h-full overflow-hidden">
+      <main 
+        className="relative z-10 w-full h-full overflow-hidden"
+        style={{ 
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 100%)', 
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 100%)' 
+        }}
+      >
         {renderSection()}
       </main>
     </div>

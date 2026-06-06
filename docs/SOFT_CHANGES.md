@@ -24,3 +24,4 @@ Thinkgg...
 - **Background Aurora**: Cores revertidas para o padrão original de 3 esferas com cores sólidas, mas mantendo a velocidade da animação mais rápida.
 - **Otimização PageSpeed**: Adicionadas tags `meta description` e `theme-color`, e atualizado a tag `<title>` no `index.html` visando melhores pontuações no PageSpeed Insights.
 - **Limpeza de Console**: Adicionado filtro no `main.tsx` para interceptar e ocultar permanentemente o aviso nativo do React solicitando a instalação do "React DevTools", garantindo um console limpo durante o desenvolvimento.
+- **Fix Mobile Scroll**: Otimização do contêiner principal de `h-screen` para `h-[100dvh]` evitando bugs do layout com a URL bar em celulares. Também foi introduzida uma máscara em gradiente (`maskImage`) no topo para fazer um 'fade-out' elegante do conteúdo ao invés de colidir e vazar por baixo do menu fixo (navbar).
